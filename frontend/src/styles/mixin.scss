@@ -1,0 +1,41 @@
+@import "constans";
+
+@mixin button-see-all($bgColor) {
+  padding: 17.6px 32px 15.4px 32px;
+  background-color: $bgColor;
+  font-size: 13px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 500;
+  color: $dark;
+}
+
+@mixin button-add-to-chart($bgColor) {
+  padding: 17.6px 32px 15.4px 32px;
+  background-color: $bgColor;
+  font-size: 13px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 500;
+  color: $white;
+}
+
+@mixin flexBetween() {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flexCenter() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flexGap($gap) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $gap;
+}
+

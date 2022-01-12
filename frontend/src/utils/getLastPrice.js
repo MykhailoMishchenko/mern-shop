@@ -1,0 +1,1 @@
+export const getLastPrice = price => `₴ ${Math.floor(price)}`;

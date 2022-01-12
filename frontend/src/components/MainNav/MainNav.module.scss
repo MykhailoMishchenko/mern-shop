@@ -1,0 +1,106 @@
+@import "src/styles/constans";
+@import "src/styles/mixin";
+
+.mainNav {
+  border-bottom: 2px solid $dark;
+}
+
+
+.main {
+  @include flexBetween();
+  padding: 6px 0 12px;
+
+  & a {
+    text-decoration: none;
+
+    & h1 {
+      font-size: $title_36\42;
+    }
+  }
+
+  & ul {
+    list-style: none;
+
+    & li a {
+      text-decoration: none;
+      position: relative;
+    }
+
+    & .active::before {
+      content: "";
+      width: 23px;
+      height: 6px;
+      background: url("../../assets/image/icon/triangle.svg") no-repeat;
+      position: absolute;
+      top: 91%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  & .categories {
+    @include flexGap(32px);
+
+    & a {
+      padding: 25px 0;
+    }
+  }
+
+  & .user {
+    @include flexGap(23px);
+
+    & .cartActive {
+      position: relative;
+      &::before {
+        content: "";
+        width: 23px;
+        height: 6px;
+        background: url("../../assets/image/icon/triangle.svg") no-repeat;
+        position: absolute;
+        top: 91%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    & .cart {
+      position: relative;
+
+      &::after {
+        content: attr(data-cart);
+        width: 15px;
+        height: 15px;
+        background-color: $red;
+        color: $white;
+        position: absolute;
+        top: 40%;
+        right: -10px;
+        @include flexCenter;
+        font-weight: 500;
+        padding: 3px;
+        border-radius: 100%;
+      }
+    }
+
+    & a {
+      padding: 18px 0;
+    }
+  }
+}
+
+.comingSoon {
+  position: relative;
+  &::before {
+    content: "Скоро!";
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 10px;
+    color: #D61313;
+    font-weight: bold;
+  }
+}
+
+.navComingSoon {
+  cursor: not-allowed;
+}

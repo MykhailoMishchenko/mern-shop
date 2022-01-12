@@ -1,0 +1,35 @@
+@import "src/styles/constans";
+@import "src/styles/mixin";
+
+.productsSection {
+  width: 100%;
+  & h2 {
+    font-size: $title_22\30;
+    text-transform: uppercase;
+    font-weight: $bold;
+    margin: 96px 0 48px;
+  }
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+
+.button {
+  @include button-see-all(#F8F8F8);
+  width: 100%;
+  display: block;
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  opacity: 0.8;
+  margin-top: 48px;
+  cursor: pointer;
+}
+
+button {
+  outline: none;
+  border: none;
+  margin-bottom: 80px;
+}

@@ -1,0 +1,29 @@
+@import "src/styles/constans";
+@import "src/styles/mixin";
+
+.blog {
+  margin-top: 48px;
+  margin-bottom: 135px;
+  & .nav {
+    @include flexBetween;
+    margin-bottom: 48px;
+    & a {
+      font-size: $subtitle_12\18;
+      font-weight: 500;
+      opacity: 0.6;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    & h2 {
+      font-size: $title_22\30;
+      text-transform: uppercase;
+      font-weight: $bold;
+    }
+  }
+
+
+
+  & .main {
+    @include flexGap(30px);
+  }
+}

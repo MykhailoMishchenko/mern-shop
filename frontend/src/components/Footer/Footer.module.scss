@@ -1,0 +1,69 @@
+@import "src/styles/constans";
+@import "src/styles/mixin";
+
+footer {
+  & .main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    margin-bottom: 40px;
+
+    & ul:last-child {
+      & li {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 8px;
+
+        &::before {
+          content: "";
+          width: 0%;
+        }
+
+        &:hover::before {
+          width: 0;
+          transition: width 0.3s ease;
+        }
+      }
+    }
+
+    & ul {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+
+      & li:first-child {
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      & li {
+        font-size: $subtitle_12\18;
+        line-height: 34px;
+        opacity: 0.8;
+        position: relative;
+
+        & a {
+          text-decoration: none;
+          position: relative;
+          width: 100%;
+        }
+
+        & .active::before {
+          content: "";
+          width: 10px;
+          height: 10px;
+          border-radius: 100%;
+          background-color: $dark;
+          opacity: 0.5;
+          position: absolute;
+          top: 50%;
+          left: 115%;
+          transform: translateY(-50%);
+        }
+
+      }
+    }
+  }
+}

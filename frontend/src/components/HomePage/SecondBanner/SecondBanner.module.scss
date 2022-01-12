@@ -1,0 +1,78 @@
+@import "src/styles/constans";
+@import "src/styles/mixin";
+
+.salesAndNewCollections {
+  margin: 96px 0;
+  @include flexGap(30px);
+
+  & .newSeason, .sale {
+    width: 540px;
+    height: 260px;
+    position: relative;
+    overflow: hidden;
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    & a {
+      cursor: pointer;
+      text-decoration: none;
+      position: absolute;
+      inset: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  & .newSeason a {
+    width: 350px;
+    height: 71px;
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 20px;
+
+    & h3 {
+      color: $dark;
+      opacity: 0.6;
+      font-size: $subtitle_12\18;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    & p {
+      letter-spacing: 0.06em;
+      font-size: $title_16\24;
+      text-transform: uppercase;
+    }
+  }
+
+  & .sale a {
+    width: 300px;
+    height: 71px;
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    & h3 {
+      color: $dark;
+      opacity: 0.6;
+      font-size: $subtitle_12\18;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    & p {
+      letter-spacing: 0.06em;
+      font-size: $title_16\24;
+      text-transform: uppercase;
+    }
+  }
+}

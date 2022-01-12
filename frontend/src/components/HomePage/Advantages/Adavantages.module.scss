@@ -1,0 +1,31 @@
+@import "src/styles/constans";
+@import "src/styles/mixin";
+
+
+.advantages {
+  margin-top: 32px;
+  padding-bottom: 32px;
+  border-bottom: 3px solid rgba(128, 128, 128, 0.05);
+}
+
+.main {
+  @include flexGap(30px);
+  & .advantage {
+    @include flexGap(8px);
+    & .icon {
+      width: 40px;
+      height: 40px;
+    }
+    & .text {
+      text-align: left;
+      font-size: $subtitle_12\18;
+      & h2 {
+        text-transform: uppercase;
+        margin-bottom: 4px;
+      }
+      & p {
+        opacity: 0.9;
+      }
+    }
+  }
+}

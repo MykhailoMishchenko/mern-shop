@@ -1,0 +1,29 @@
+@import "src/styles/constans";
+@import "src/styles/mixin";
+
+.navigation {
+  background-color: $dark;
+  color: $white;
+  padding: 5px 0;
+}
+
+.main {
+  @include flexBetween();
+  & ul {
+    list-style: none;
+    & li a,address,p{
+      color: $white;
+      text-decoration: none;
+    }
+  }
+  & ul:first-child {
+    @include flexGap(24px);
+    & li {
+      @include flexGap(0.5rem);
+    }
+
+  }
+  & ul:last-child {
+    @include flexGap(10px);
+  }
+}
