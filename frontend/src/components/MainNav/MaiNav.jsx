@@ -4,10 +4,11 @@ import {NavLink} from 'react-router-dom';
 import {ReactComponent as User} from '../../assets/image/icon/user.svg';
 import {ReactComponent as Bag} from '../../assets/image/icon/shopping-bag.svg';
 import {ReactComponent as Like} from '../../assets/image/icon/heart.svg';
+import {useSelector} from "react-redux";
 
 const MainNav = () => {
     const comingSoon = (e) => e.preventDefault();
-    const cartItems = [1,2,3,4]
+    const {cartItems} = useSelector(state => state?.cart);
     const items = cartItems.length;
     return (
         <nav className={styles.mainNav}>
@@ -31,8 +32,8 @@ const MainNav = () => {
                     <ul className={styles.user}>
                         <li><NavLink activeClassName={styles.active} to='/profile'><User/></NavLink></li>
                         {!!items
-                            ? <li data-cart={items} className={styles.cart}><NavLink activeClassName={styles.active} to='/shopping-cart'><Bag /></NavLink></li>
-                            : <li><NavLink activeClassName={styles.active} to='/shopping-cart'><Bag /></NavLink></li>
+                            ? <li data-cart={items} className={styles.cart}><NavLink activeClassName={styles.active} to='/cart'><Bag /></NavLink></li>
+                            : <li><NavLink activeClassName={styles.active} to='/cart'><Bag /></NavLink></li>
                         }
                         <li><NavLink activeClassName={styles.active} to='/favorite'><Like/></NavLink></li>
                     </ul>

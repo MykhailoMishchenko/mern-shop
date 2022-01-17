@@ -1,0 +1,21 @@
+@import "src/styles/constans";
+
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  & svg {
+    width: 300px;
+    height: 300px;
+  }
+  & p {
+    margin-top: 25px;
+    font-size: $title_22\30;
+      & span {
+        font-size: $title_22\30;
+        color: #0BB17F;
+      }
+  }
+}

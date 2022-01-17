@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Products.module.scss";
 import SkeletonListOfProducts from "../../../common/Skeletons/ListOfProducts/SkeletonListOfProducts";
 import Product from "./Product";
+import EmptyProducts from "../../../common/EmptyPage/HomePage/ListOfProduct/EmptyProducts";
 
 const Products = ({products, gender, nameForBtn, href, pending}) => {
     return (
@@ -13,7 +14,9 @@ const Products = ({products, gender, nameForBtn, href, pending}) => {
                 {
                   pending
                   ? <SkeletonListOfProducts/>
-                  : products.map(product => {
+                  : products.length === 0
+                      ? <EmptyProducts/>
+                      : products.map(product => {
                       return <Product key={product._id} product={product} />;
                     })
                 }

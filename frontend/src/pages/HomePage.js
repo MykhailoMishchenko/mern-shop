@@ -4,32 +4,25 @@ import Advantages from "../components/HomePage/Advantages/Advantages";
 import SecondBanner from "../components/HomePage/SecondBanner/SecondBanner";
 import LastArticleInBlog from "../components/HomePage/LastArticleInBlog/LastArticleInBlog";
 import Products from "../components/HomePage/ListOfProducts/Products";
+import {useGetFemaleProductsQuery, useGetMaleProductsQuery} from "../redux/Products/productsApi";
+import FixedBottomAlert from "../common/Alert/FixedBottomAlert/FixedBottomAlert";
 
 
 const HomePage = () => {
 
-  const data = [
-    {
-      image: "/sunglasses/men/GUESS_GU6959_07C_63_SMOKE_MIRROR.jpeg",
-      name: "СОЛНЦЕЗАЩИТНЫЕ ОЧКИ GUESS GU6959 07C 63 SMOKE MIRROR",
-      brand: "Guess",
-      gender: "male",
-      category: "sunglasses",
-      frameForGlasses: "Авиатор",
-      frameMaterial: "Металл",
-      lensColor: "Черный",
-      polarization: false,
-      mirrored: true,
-      gradient: false,
-      lensMaterial: "polymer",
-      sale: false,
-      percent: 0,
-      price: 1739,
-      countInStock: 23,
-      rating: 4.5,
-      numReviews: 4,
-      id: "1"
-    },]
+  const {
+    data: femaleProducts = [],
+    isLoading: isLoadingFemale,
+    isError: isErrorFemale,
+    error: errorFemale
+  } = useGetFemaleProductsQuery()
+
+  const {
+    data: maleProducts = [],
+    isLoading: isLoadingMale,
+    isError: isErrorMale,
+    error: errorMale
+  } = useGetMaleProductsQuery()
 
   return (
     <>
@@ -38,23 +31,41 @@ const HomePage = () => {
       </div>
       <Advantages />
       <div className="container">
-        <Products products={data}
+        <Products products={femaleProducts}
                   gender="Для женщин"
                   filterGender="female"
                   nameForBtn="Смотреть все"
                   href="for-women"
-                  pending={false}
+                  pending={isLoadingFemale}
         />
-        <Products products={data}
+        <Products products={maleProducts}
                   gender="Для мужчин"
                   filterGender="male"
                   nameForBtn="Смотреть все"
                   href="for-men"
-                  pending={true}
+                  pending={isLoadingMale}
         />
         <SecondBanner />
         <LastArticleInBlog />
       </div>
+      {isErrorFemale && <FixedBottomAlert
+        color="red"
+        msg={
+          500 === 500
+            ? "Возникла непредвиденная ошибка, обновите страницу или попробуйте позже"
+            : "Ошибка! Извините за неудобства, мы уже решаем эту проблему"
+        }
+      />
+      }
+      {isErrorMale && <FixedBottomAlert
+        color="red"
+        msg={
+          errorMale.status === 500
+            ? "Возникла непредвиденная ошибка, обновите страницу или попробуйте позже"
+            : "Ошибка! Извините за неудобства, мы уже решаем эту проблему"
+        }
+      />
+      }
     </>
   );
 };

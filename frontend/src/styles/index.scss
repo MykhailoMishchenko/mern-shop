@@ -89,3 +89,9 @@ body {
   border-left-color: $dark;
   animation: spin 1.25s linear infinite;
 }
+
+.block-spinner {
+  width: 100%;
+  height: 600px;
+  background-color: #0BB17F;
+}
