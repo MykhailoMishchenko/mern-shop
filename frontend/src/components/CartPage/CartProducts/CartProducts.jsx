@@ -6,7 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {getLastPrice} from "../../../utils/getLastPrice";
 import {calcSalePrice} from "../../../utils/calcSalePrice";
 import {calcFinalPrice} from "../../../utils/calcFinalPrice";
-import {NavLink} from "react-router-dom";
+import {NavLink, useHistory} from "react-router-dom";
 import {addToCartRequest, removeFromCartRequest} from "../../../redux/Cart/action";
 import Spinner from "../../../common/Spinner/Spinner";
 
@@ -14,6 +14,8 @@ const CartProducts = ({products}) => {
   const count = products.reduce((acc, item) => acc + item.qty, 0);
   const dispatch = useDispatch();
   const {loading} = useSelector(state => state?.cart);
+
+  const history = useHistory();
 
 
   return (
@@ -91,7 +93,10 @@ const CartProducts = ({products}) => {
                   })
                 }
               </div>
-            : <EmptyCart className={styles.empty} />
+            : <div className={styles.emptyWrapper}>
+              <EmptyCart className={styles.empty} />
+              <p>Ваша корзина пуста, <span onClick={() => history.push("/")}>вернитесь назад</span>, для выбора товаров</p>
+            </div>
         }
         <div className={styles.order}>
           <div className={styles.orderTitle}>

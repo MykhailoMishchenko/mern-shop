@@ -11,12 +11,28 @@
   & nav {
     width: 100%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
 
     & p {
       text-decoration: none;
       opacity: 0.6;
       cursor: pointer;
+    }
+
+    & .share {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      & svg {
+        height: 15px;
+        width: 15px;
+      }
+      & p {
+        text-decoration: none;
+        opacity: 0.6;
+      }
     }
   }
 
@@ -29,7 +45,7 @@
 
     & h2 {
       font-weight: 600;
-      font-size: 26px;
+      font-size: 32px;
       line-height: 36px;
       letter-spacing: 0.06em;
     }

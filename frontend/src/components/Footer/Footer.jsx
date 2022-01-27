@@ -16,8 +16,8 @@ const Footer = () => {
                         <li>
                             <h2>Категории</h2>
                         </li>
-                        <li><NavLink activeClassName={styles.active} to="/for-women">Для девушек</NavLink></li>
-                        <li><NavLink activeClassName={styles.active} to="/for-men">Для мужчин</NavLink></li>
+                        <li><NavLink activeClassName={styles.active} to="/women">Для девушек</NavLink></li>
+                        <li><NavLink activeClassName={styles.active} to="/men">Для мужчин</NavLink></li>
                         <li><NavLink activeClassName={styles.active} to="/accessories">Аксессуары</NavLink></li>
                         <li><NavLink activeClassName={styles.active} to="/sales">Распродажа</NavLink></li>
                     </ul>

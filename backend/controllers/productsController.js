@@ -27,7 +27,7 @@ const getProductsByFemale = asyncHandler(async (req, res) => {
 // @route Get /api/products/women
 // @access Public
 const getProductsByFemaleLimit = asyncHandler(async (req, res) => {
-  const products = await Product.find({"gender": "female"}).limit(6);
+  const products = await Product.find({"gender": "female"}).limit(8);
   if (products) {
     res.json(products);
   } else {
@@ -53,7 +53,7 @@ const getProductsByMale = asyncHandler(async (req, res) => {
 // @route Get /api/products/men
 // @access Public
 const getProductsByMaleLimit = asyncHandler(async (req, res) => {
-  const products = await Product.find({"gender": "male"}).limit(6);
+  const products = await Product.find({"gender": "male"}).limit(8);
   if (products) {
     res.json(products);
   } else {

@@ -35,14 +35,14 @@ const HomePage = () => {
                   gender="Для женщин"
                   filterGender="female"
                   nameForBtn="Смотреть все"
-                  href="for-women"
+                  href="women"
                   pending={isLoadingFemale}
         />
         <Products products={maleProducts}
                   gender="Для мужчин"
                   filterGender="male"
                   nameForBtn="Смотреть все"
-                  href="for-men"
+                  href="men"
                   pending={isLoadingMale}
         />
         <SecondBanner />
@@ -51,7 +51,7 @@ const HomePage = () => {
       {isErrorFemale && <FixedBottomAlert
         color="red"
         msg={
-          500 === 500
+          errorFemale.status === 500
             ? "Возникла непредвиденная ошибка, обновите страницу или попробуйте позже"
             : "Ошибка! Извините за неудобства, мы уже решаем эту проблему"
         }

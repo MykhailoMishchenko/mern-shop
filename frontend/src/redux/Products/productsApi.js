@@ -2,7 +2,7 @@ import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react"
 
 export const productsApi = createApi({
   reducerPath: "products",
-  tagTypes: ["femaleProducts", "maleProducts", "productsById"],
+  tagTypes: ["femaleProducts", "maleProducts", "productsById", "allFemaleProducts", "allMaleProducts"],
   baseQuery: fetchBaseQuery({baseUrl: "/api/products"}),
   endpoints: (build) => ({
     getFemaleProducts: build.query({
@@ -25,10 +25,23 @@ export const productsApi = createApi({
           ]
           : [{ type: 'maleProducts', id: 'LIST' }],
     }),
+    allFemaleProducts: build.query({
+      query: () => "/women",
+      providesTags: (result) =>
+        result
+          ? [
+            ...result.map(({ id }) => ({ type: 'allFemaleProducts', id })),
+            { type: 'allFemaleProducts', id: 'LIST' },
+          ]
+          : [{ type: 'allFemaleProducts', id: 'LIST' }],
+    }),
     getProductsById: build.query({
       query: (id) => `/${id}`
     })
   })
 })
 
-export const {useGetFemaleProductsQuery, useGetMaleProductsQuery, useGetProductsByIdQuery} = productsApi;
+export const {
+  useGetFemaleProductsQuery, useGetMaleProductsQuery,
+  useGetProductsByIdQuery, useAllFemaleProductsQuery
+} = productsApi;

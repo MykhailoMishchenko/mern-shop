@@ -17,8 +17,8 @@ const MainNav = () => {
                     <NavLink to='/'><h1>Online-Shop</h1></NavLink>
                     <ul className={styles.categories}>
                         <li><NavLink activeClassName={styles.active} to='/about-us'>Про нас</NavLink></li>
-                        <li><NavLink activeClassName={styles.active} to='/for-women'>Для девушек</NavLink></li>
-                        <li><NavLink activeClassName={styles.active} to='/for-men'>Для мужчин</NavLink></li>
+                        <li><NavLink activeClassName={styles.active} to='/women'>Для девушек</NavLink></li>
+                        <li><NavLink activeClassName={styles.active} to='/men'>Для мужчин</NavLink></li>
                         <li className={styles.comingSoon}>
                             <NavLink onClick={comingSoon}
                                      activeClassName={styles.active} to='/accessories'

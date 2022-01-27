@@ -1,5 +1,6 @@
 {
   "name": "mern",
+  "proxy": "http://127.0.0.1:3005",
   "version": "1.0.0",
   "description": "Mern stack (online-shop)",
   "main": "server.js",
