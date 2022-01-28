@@ -95,3 +95,17 @@ body {
   height: 600px;
   background-color: #0BB17F;
 }
+
+.filter_icon {
+  font-size: 25px;
+  color: #adadad;
+  cursor: pointer;
+}
+.active_icon {
+  color: $dark;
+}
+
+.sort_icon {
+  transform: rotate(180deg);
+}
+

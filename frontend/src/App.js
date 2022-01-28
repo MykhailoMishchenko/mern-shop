@@ -14,6 +14,7 @@ import CartPage from "./pages/CartPage";
 import {useSelector} from "react-redux";
 import FixedBottomAlert from "./common/Alert/FixedBottomAlert/FixedBottomAlert";
 import WomenPage from "./pages/WomenPage";
+import MenPage from "./pages/MenPage";
 
 const App = () => {
   const {
@@ -28,6 +29,7 @@ const App = () => {
         <MaiNav/>
         <Route path="/" component={HomePage} exact/>
         <Route path="/women" component={WomenPage} exact/>
+        <Route path="/men" component={MenPage} exact/>
         <Route path="/product/:id" component={ProductDetailsPage}/>
         <Route path="/cart/:id?" component={CartPage}/>
         <Footer/>

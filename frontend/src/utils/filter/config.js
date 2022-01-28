@@ -33,12 +33,9 @@ export const config = {
     {id: 5, value: "Polaroid"},
     {id: 6, value: "Guess"}
   ],
-  price: [
-    {id: 1, value: 1000},
-    {id: 2, value: 2000},
-    {id: 3, value: 3000},
-    {id: 4, value: 4000},
-    {id: 5, value: 5000}
+  sale: [
+    {id: 1, value: true},
+    {id: 2, value: false},
   ]
 };
 

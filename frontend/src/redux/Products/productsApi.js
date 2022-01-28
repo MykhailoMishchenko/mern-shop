@@ -35,6 +35,16 @@ export const productsApi = createApi({
           ]
           : [{ type: 'allFemaleProducts', id: 'LIST' }],
     }),
+    allMaleProducts: build.query({
+      query: () => "/men",
+      providesTags: (result) =>
+        result
+          ? [
+            ...result.map(({ id }) => ({ type: 'allMaleProducts', id })),
+            { type: 'allMaleProducts', id: 'LIST' },
+          ]
+          : [{ type: 'allMaleProducts', id: 'LIST' }],
+    }),
     getProductsById: build.query({
       query: (id) => `/${id}`
     })
@@ -43,5 +53,6 @@ export const productsApi = createApi({
 
 export const {
   useGetFemaleProductsQuery, useGetMaleProductsQuery,
-  useGetProductsByIdQuery, useAllFemaleProductsQuery
+  useGetProductsByIdQuery, useAllFemaleProductsQuery,
+  useAllMaleProductsQuery
 } = productsApi;

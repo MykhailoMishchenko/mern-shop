@@ -1,39 +1,36 @@
-import React, {useState} from "react";
-import styles from "./WomenProducts.module.scss";
+import React, {useEffect, useState} from "react";
+import styles from "./Products.module.scss";
 import {useDispatch, useSelector} from "react-redux";
 import Rating from "../../../common/Rating/Rating";
 import {NavLink} from "react-router-dom";
 import {calcSalePrice} from "../../../utils/calcSalePrice";
 import {getLastPrice} from "../../../utils/getLastPrice";
 import {ReactComponent as FilterImg} from "../../../assets/image/icon/filter.svg";
-import {ReactComponent as GridLine} from "../../../assets/image/icon/grid1.svg";
-import {ReactComponent as GridBlocks} from "../../../assets/image/icon/grid2.svg";
 import {ReactComponent as Empty} from "../../../assets/image/storyset/emptyProducts.svg";
 import {config} from "../../../utils/filter/config";
 import {changeToGrid, changeToLine} from "../../../redux/Filter/Grid/actions";
+import _ from "lodash";
 
 
-const WomenProducts = ({data}) => {
+const Products = ({data}) => {
 
   const [state, setState] = useState({
     filtration: {
       polarization: {},
       frameForGlasses: {},
       brand: {},
-      price: {}
+      sale: {}
     }
   });
-
+  const [products, setProducts] = useState([]);
+  const [sortPrice, setSortPrice] = useState(false);
   const [filterIsActive, setFilterIsActive] = useState(false);
+  const {isGrid} = useSelector(state => state?.markup);
+
   const dispatch = useDispatch();
 
   const changeToLineHandler = () => dispatch(changeToLine());
   const changeToGridHandler = () => dispatch(changeToGrid());
-
-  const {
-    isGrid
-  } = useSelector(state => state?.markup);
-
   const allFilterClickListener = (name, filterProp) => {
     setState(prevState => {
       if (prevState.filtration[filterProp].hasOwnProperty(name)) {
@@ -68,20 +65,30 @@ const WomenProducts = ({data}) => {
     });
   };
 
+  useEffect(() => {
+    setProducts(filter(data, state.filtration))
+  }, [state])
+
+  useEffect(() => {
+    if(sortPrice) setProducts(_.orderBy(filter(data, state.filtration), "price").reverse())
+    else setProducts(_.orderBy(filter(data, state.filtration), "price"))
+  }, [sortPrice])
+
   return (
     <>
       <div className="container">
         <div className={styles.wrapper}>
-          <div className={styles.filter} onClick={() => setFilterIsActive(!filterIsActive)}><FilterImg /></div>
-          <div className={styles.grid}>
-          <span className={isGrid ? null : styles.active} onClick={changeToLineHandler}>
-            <GridLine />
-          </span>
-            <span className={isGrid ? styles.active : null} onClick={changeToGridHandler}>
-            <GridBlocks />
-          </span>
+          <div className={styles.filter}>
+            <span onClick={() => setFilterIsActive(!filterIsActive)}><FilterImg /></span>
+            {/*<button>Очистить фильтр <i className="far fa-trash-alt"></i></button>*/}
           </div>
-          <div className={styles.fromTo}>BESTSELLERS</div>
+          <div className={styles.grid}>
+           <i className={isGrid ? "fas fa-grip-lines filter_icon" : "fas fa-grip-lines filter_icon active_icon"} onClick={changeToLineHandler}></i>
+            <i className={isGrid ? "fas fa-grip-horizontal filter_icon active_icon" : "fas fa-grip-horizontal filter_icon"} onClick={changeToGridHandler}></i>
+          </div>
+          <div className={styles.fromTo}>
+              <p onClick={() => setSortPrice(!sortPrice)}>Цена <i className={sortPrice ? "fas fa-arrow-up sort_icon" : "fas fa-arrow-up"}></i></p>
+          </div>
         </div>
         <div className={filterIsActive ? styles.filterWrapperVisible : styles.filterWrapperHidden}>
           <div className={styles.filterWrapper}>
@@ -90,7 +97,8 @@ const WomenProducts = ({data}) => {
               <div className={styles.list}>
                 {config.polarization.map(item => (
                   <label key={item.id} className={styles.label}>
-                    <input onClick={() => allFilterClickListener(item.value, "polarization")} type="checkbox"
+                    <input onClick={ () => allFilterClickListener(item.value, "polarization")}
+                           type="checkbox"
                            className={styles.input} />
                     <div className={styles.value}>
                       {item.value
@@ -107,7 +115,8 @@ const WomenProducts = ({data}) => {
               <div className={styles.list}>
                 {config.frameForGlasses.map(item => (
                   <label key={item.id} className={styles.label}>
-                    <input onClick={() => allFilterClickListener(item.value, "frameForGlasses")} type="checkbox"
+                    <input onClick={() => allFilterClickListener(item.value, "frameForGlasses")}
+                           type="checkbox"
                            className={styles.input} />
                     <div className={styles.value}>{item.img} {item.value}</div>
                   </label>
@@ -129,11 +138,16 @@ const WomenProducts = ({data}) => {
             <div className={styles.price}>
               <h5>Цена</h5>
               <div className={styles.list}>
-                {config.price.map(item => (
+                {config.sale.map(item => (
                   <label key={item.id} className={styles.label}>
-                    <input onClick={() => {
-                    }} type="checkbox" className={styles.input} />
-                    <div className={styles.value}>₴ {item.value}+</div>
+                    <input onClick={() => allFilterClickListener(item.value, "sale")} type="checkbox"
+                           className={styles.input} />
+                    <div className={styles.value}>
+                      {item.value
+                        ? <p>Со скидкой <i className="fas fa-check"></i></p>
+                        : <p>Без скидки <i className="fas fa-times"></i></p>
+                      }
+                    </div>
                   </label>
                 ))}
               </div>
@@ -143,12 +157,12 @@ const WomenProducts = ({data}) => {
       </div>
       <div className={isGrid ? styles.listProduct : styles.listProductInLine}>
         {
-          filter(data, state.filtration).length === 0
+          products.length === 0
             ? <div className={styles.emptyWrapper}>
               <Empty className={styles.empty}/>
               <p>По таким критериям, товар не найден</p>
             </div>
-            : filter(data, state.filtration).map(product => (
+            : products.map(product => (
             <div key={product._id} className={isGrid ? styles.item : styles.product}>
               {
                 product.sale
@@ -199,4 +213,4 @@ const WomenProducts = ({data}) => {
   );
 };
 
-export default WomenProducts;
+export default Products;

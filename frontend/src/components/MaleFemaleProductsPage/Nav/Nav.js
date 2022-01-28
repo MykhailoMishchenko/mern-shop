@@ -3,7 +3,7 @@ import styles from "./Nav.module.scss";
 import {ReactComponent as Share} from "../../../assets/image/icon/share.svg";
 import {useHistory} from "react-router-dom";
 
-const Nav = () => {
+const Nav = ({gender}) => {
   const history = useHistory();
   return (
     <div className={styles.wrapperHeader}>
@@ -13,7 +13,7 @@ const Nav = () => {
           <div className={styles.share}><Share /> <p>Поделиться</p></div>
         </nav>
         <header>
-          <h2>Для женщин</h2>
+          <h2>{gender === "female" ? "Для женщин" : "Для мужчин"}</h2>
         </header>
       </div>
     </div>
