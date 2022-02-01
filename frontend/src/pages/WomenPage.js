@@ -17,7 +17,7 @@ const WomenPage = () => {
         {
           isLoading
             ? <SkeletonListOfProducts />
-            : data && !isError ? <Products data={data} /> : <Error/>
+            : data && !isError ? <Products data={data} isSale={false} /> : <Error/>
         }
       </div>
     </>

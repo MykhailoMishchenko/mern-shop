@@ -36,6 +36,10 @@ export const config = {
   sale: [
     {id: 1, value: true},
     {id: 2, value: false},
+  ],
+  gender: [
+    {id: 1, value: "female"},
+    {id: 2, value: "male"}
   ]
 };
 

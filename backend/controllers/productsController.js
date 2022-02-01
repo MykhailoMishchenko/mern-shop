@@ -75,11 +75,25 @@ const getProductById = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc Fetch all sale products
+// @route Get /api/products/sale
+// @access Public
+const getProductBySale = asyncHandler(async (req, res) => {
+  const product = await Product.find({"sale": true});
+  if (product) {
+    res.json(product);
+  } else {
+    res.status(404);
+    throw Error("Товар не найден");
+  }
+});
+
 export {
   getProducts,
   getProductById,
   getProductsByFemale,
   getProductsByMale,
   getProductsByFemaleLimit,
-  getProductsByMaleLimit
+  getProductsByMaleLimit,
+  getProductBySale
 };

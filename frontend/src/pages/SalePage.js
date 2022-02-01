@@ -1,26 +1,28 @@
 import React from "react";
+import {useAllSaleProductsQuery} from "../redux/Products/productsApi";
 import Nav from "../components/MaleFemaleProductsPage/Nav/Nav";
 import SkeletonListOfProducts from "../common/Skeletons/ListOfProducts/SkeletonListOfProducts";
 import Products from "../components/MaleFemaleProductsPage/Products/Products";
 import Error from "../components/MaleFemaleProductsPage/Error/Error";
-import {useAllMaleProductsQuery} from "../redux/Products/productsApi";
 
-const MenPage = () => {
+const SalePage = () => {
 
-  const {data, isLoading, isError} = useAllMaleProductsQuery();
+  const {data, isLoading, isError} = useAllSaleProductsQuery();
+
+  console.log(data);
 
   return (
-    <>
-      <Nav gender="male"/>
+    <div>
+      <Nav sale={true}/>
       <div className="container">
         {
           isLoading
             ? <SkeletonListOfProducts />
-            : data && !isError ? <Products data={data} isSale={false} /> : <Error/>
+            : data && !isError ? <Products data={data} isSale={true} /> : <Error/>
         }
       </div>
-    </>
+    </div>
   );
 };
 
-export default MenPage;
+export default SalePage;

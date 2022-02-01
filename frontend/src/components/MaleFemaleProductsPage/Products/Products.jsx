@@ -12,14 +12,15 @@ import {changeToGrid, changeToLine} from "../../../redux/Filter/Grid/actions";
 import _ from "lodash";
 
 
-const Products = ({data}) => {
+const Products = ({data, isSale}) => {
 
   const [state, setState] = useState({
     filtration: {
       polarization: {},
       frameForGlasses: {},
       brand: {},
-      sale: {}
+      sale: {},
+      gender: {}
     }
   });
   const [products, setProducts] = useState([]);
@@ -136,21 +137,39 @@ const Products = ({data}) => {
               </div>
             </div>
             <div className={styles.price}>
-              <h5>Цена</h5>
-              <div className={styles.list}>
-                {config.sale.map(item => (
-                  <label key={item.id} className={styles.label}>
-                    <input onClick={() => allFilterClickListener(item.value, "sale")} type="checkbox"
-                           className={styles.input} />
-                    <div className={styles.value}>
-                      {item.value
-                        ? <p>Со скидкой <i className="fas fa-check"></i></p>
-                        : <p>Без скидки <i className="fas fa-times"></i></p>
-                      }
+              {
+                isSale
+                ? <>
+                    <h5>Цена</h5>
+                    <div className={styles.list}>
+                      {config.gender.map(item => (
+                        <label key={item.id} className={styles.label}>
+                          <input onClick={() => allFilterClickListener(item.value, "gender")} type="checkbox"
+                                 className={styles.input} />
+                          <div className={styles.value}>{item.value === "male" ? "Мужские" : "Женские"}</div>
+                        </label>
+                      ))}
                     </div>
-                  </label>
-                ))}
-              </div>
+                  </>
+                  : <>
+                    <h5>Цена</h5>
+                    <div className={styles.list}>
+                      {config.sale.map(item => (
+                        <label key={item.id} className={styles.label}>
+                          <input onClick={() => allFilterClickListener(item.value, "sale")} type="checkbox"
+                                 className={styles.input} />
+                          <div className={styles.value}>
+                            {item.value
+                              ? <p>Со скидкой <i className="fas fa-check"></i></p>
+                              : <p>Без скидки <i className="fas fa-times"></i></p>
+                            }
+                          </div>
+                        </label>
+                      ))}
+                    </div>
+                  </>
+              }
+
             </div>
           </div>
         </div>
