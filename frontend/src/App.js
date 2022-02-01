@@ -16,6 +16,7 @@ import FixedBottomAlert from "./common/Alert/FixedBottomAlert/FixedBottomAlert";
 import WomenPage from "./pages/WomenPage";
 import MenPage from "./pages/MenPage";
 import SalePage from "./pages/SalePage";
+import LoginPage from "./pages/LoginPage";
 
 const App = () => {
   const {
@@ -34,6 +35,7 @@ const App = () => {
         <Route path="/sales" component={SalePage} exact/>
         <Route path="/product/:id" component={ProductDetailsPage}/>
         <Route path="/cart/:id?" component={CartPage}/>
+        <Route path="/login" component={LoginPage} exact/>
         <Footer/>
         <Author/>
       </Router>
