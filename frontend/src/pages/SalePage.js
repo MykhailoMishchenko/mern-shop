@@ -4,15 +4,15 @@ import Nav from "../components/MaleFemaleProductsPage/Nav/Nav";
 import SkeletonListOfProducts from "../common/Skeletons/ListOfProducts/SkeletonListOfProducts";
 import Products from "../components/MaleFemaleProductsPage/Products/Products";
 import Error from "../components/MaleFemaleProductsPage/Error/Error";
+import Title from "../common/Title/Title";
 
 const SalePage = () => {
 
   const {data, isLoading, isError} = useAllSaleProductsQuery();
 
-  console.log(data);
-
   return (
     <div>
+      <Title title="Онлайн магазин | Расродажа"/>
       <Nav sale={true}/>
       <div className="container">
         {

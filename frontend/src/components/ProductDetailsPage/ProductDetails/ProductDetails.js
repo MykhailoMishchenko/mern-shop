@@ -12,6 +12,7 @@ import {ReactComponent as Visa} from "../../../assets/image/icon/VISA.svg";
 import MasterCard from "../../../assets/image/icon/MasterCard.png";
 import NovaPoshta from "../../../assets/image/icon/novaposhta.png";
 import {useHistory, useParams} from "react-router-dom";
+import Title from "../../../common/Title/Title";
 
 const ProductDetails = ({product}) => {
   const [qty, setQty] = useState(1);
@@ -28,6 +29,7 @@ const ProductDetails = ({product}) => {
       {
         product !== null
           ? <>
+            <Title title={product.name}/>
             <ProductDetailsNav _id={product._id} name={product.name} countInStock={product.countInStock}
                                rating={product.rating} numReviews={product.numReviews} />
             <div className="container">

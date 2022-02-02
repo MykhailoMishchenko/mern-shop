@@ -4,6 +4,7 @@ import SkeletonListOfProducts from "../common/Skeletons/ListOfProducts/SkeletonL
 import Products from "../components/MaleFemaleProductsPage/Products/Products";
 import Error from "../components/MaleFemaleProductsPage/Error/Error";
 import {useAllMaleProductsQuery} from "../redux/Products/productsApi";
+import Title from "../common/Title/Title";
 
 const MenPage = () => {
 
@@ -11,6 +12,7 @@ const MenPage = () => {
 
   return (
     <>
+      <Title title="Онлайн магазин | Для мужчин"/>
       <Nav gender="male"/>
       <div className="container">
         {

@@ -6,6 +6,7 @@ import LastArticleInBlog from "../components/HomePage/LastArticleInBlog/LastArti
 import Products from "../components/HomePage/ListOfProducts/Products";
 import {useGetFemaleProductsQuery, useGetMaleProductsQuery} from "../redux/Products/productsApi";
 import FixedBottomAlert from "../common/Alert/FixedBottomAlert/FixedBottomAlert";
+import Title from "../common/Title/Title";
 
 
 const HomePage = () => {
@@ -26,6 +27,7 @@ const HomePage = () => {
 
   return (
     <>
+      <Title/>
       <div className="container">
         <Banner />
       </div>

@@ -8,9 +8,16 @@ const cartItemsFromStorage = localStorage.getItem('cartItems')
   ? JSON.parse(localStorage.getItem('cartItems'))
   : []
 
+const userCredentials = localStorage.getItem('userCredentials')
+  ? JSON.parse(localStorage.getItem('userCredentials'))
+  : null
+
 const initialState = {
   cart: {
     cartItems: cartItemsFromStorage
+  },
+  login: {
+    credentials: userCredentials
   }
 };
 

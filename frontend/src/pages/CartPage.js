@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import CartProducts from "../components/CartPage/CartProducts/CartProducts";
 import {useDispatch, useSelector} from "react-redux";
 import {addToCartRequest} from "../redux/Cart/action";
+import Title from "../common/Title/Title";
 
 
 
@@ -19,6 +20,7 @@ const CartPage = ({match, location}) => {
 
   return (
     <div className="container">
+      <Title title="Онлайн магазин | Корзина"/>
       <CartProducts products={cartItems} />
     </div>
   );

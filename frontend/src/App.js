@@ -1,14 +1,11 @@
-import React, {useState} from "react";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import React from "react";
+import {BrowserRouter as Router, Route, useHistory, useLocation, useParams} from "react-router-dom";
 import ScrollToTop from "./common/ScrollToTop/ScrollToTop";
 import TopNav from "./components/TopNav/TopNav";
 import MaiNav from "./components/MainNav/MaiNav";
 import Footer from "./components/Footer/Footer";
 import Author from "./components/Author/Author";
 import HomePage from "./pages/HomePage";
-import {
-  useGetFemaleProductsQuery
-} from "./redux/Products/productsApi";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import CartPage from "./pages/CartPage";
 import {useSelector} from "react-redux";
@@ -17,12 +14,16 @@ import WomenPage from "./pages/WomenPage";
 import MenPage from "./pages/MenPage";
 import SalePage from "./pages/SalePage";
 import LoginPage from "./pages/LoginPage";
+import PrivateRoute from "./HOC/PrivateRoute";
+import PublicRoute from "./HOC/PublicRoute";
 
 const App = () => {
   const {
     removeAlert,
     addAlert
   } = useSelector(state => state?.cart)
+
+
   return (
     <>
       <Router>
@@ -34,8 +35,8 @@ const App = () => {
         <Route path="/men" component={MenPage} exact/>
         <Route path="/sales" component={SalePage} exact/>
         <Route path="/product/:id" component={ProductDetailsPage}/>
-        <Route path="/cart/:id?" component={CartPage}/>
-        <Route path="/login" component={LoginPage} exact/>
+        <PrivateRoute path="/cart/:id?" component={CartPage}/>
+        <PublicRoute path="/login" redirectTo="/" component={LoginPage} exact restricted/>
         <Footer/>
         <Author/>
       </Router>
