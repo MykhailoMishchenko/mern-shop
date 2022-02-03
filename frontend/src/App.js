@@ -16,12 +16,21 @@ import SalePage from "./pages/SalePage";
 import LoginPage from "./pages/LoginPage";
 import PrivateRoute from "./HOC/PrivateRoute";
 import PublicRoute from "./HOC/PublicRoute";
+import Alert from "./common/Alert/Alert/Alert";
+import FavoriteProductsPage from "./pages/FavoriteProductsPage";
 
 const App = () => {
   const {
     removeAlert,
     addAlert
   } = useSelector(state => state?.cart)
+  const {
+    removeAlert: removeAlertFavorite,
+    addAlert: addAlertFavorite
+  } = useSelector(state => state?.favorite)
+  const {
+    credentials, successAlert
+  } = useSelector(state => state?.login)
 
 
   return (
@@ -36,12 +45,16 @@ const App = () => {
         <Route path="/sales" component={SalePage} exact/>
         <Route path="/product/:id" component={ProductDetailsPage}/>
         <PrivateRoute path="/cart/:id?" component={CartPage}/>
+        <PrivateRoute path="/favorite/:id?" component={FavoriteProductsPage}/>
         <PublicRoute path="/login" redirectTo="/" component={LoginPage} exact restricted/>
         <Footer/>
         <Author/>
       </Router>
+      <Alert credentials={credentials} isVisible={successAlert}/>
       { removeAlert && <FixedBottomAlert msg="Товар успешно удален из Вашей корзины!" color="green" />}
       { addAlert && <FixedBottomAlert msg="Товар успешно добавлен в Вашу корзину!" color="green" />}
+      { removeAlertFavorite && <FixedBottomAlert msg="Товар успешно удален из Вашего списка избранного!" color="green" />}
+      { addAlertFavorite && <FixedBottomAlert msg="Товар успешно добавлен в Ваш список избранного!" color="green" />}
     </>
   );
 };

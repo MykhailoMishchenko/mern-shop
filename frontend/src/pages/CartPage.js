@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import CartProducts from "../components/CartPage/CartProducts/CartProducts";
 import {useDispatch, useSelector} from "react-redux";
-import {addToCartRequest} from "../redux/Cart/action";
+import {addToCartRequest} from "../redux/Cart/actions";
 import Title from "../common/Title/Title";
 
 

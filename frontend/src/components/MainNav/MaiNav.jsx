@@ -9,7 +9,14 @@ import {useSelector} from "react-redux";
 const MainNav = () => {
     const comingSoon = (e) => e.preventDefault();
     const {cartItems} = useSelector(state => state?.cart);
+    const {favoriteItems} = useSelector(state => state?.favorite);
     const items = cartItems.length;
+    const favorite = favoriteItems.length;
+
+    const {
+        credentials
+    } = useSelector(state => state?.login)
+
     return (
         <nav className={styles.mainNav}>
             <div className='container'>
@@ -30,12 +37,20 @@ const MainNav = () => {
                         <li><NavLink activeClassName={styles.active} to='/contacts'>Контакты</NavLink></li>
                     </ul>
                     <ul className={styles.user}>
-                        <li><NavLink activeClassName={styles.active} to='/profile'><User/></NavLink></li>
+                        {
+                            credentials
+                            ?  <li><NavLink activeClassName={styles.active} to='/profile'><User/></NavLink></li>
+                            : <li><NavLink className={styles.login} to="/login">Войти</NavLink></li>
+                        }
                         {!!items
                             ? <li data-cart={items} className={styles.cart}><NavLink activeClassName={styles.active} to='/cart'><Bag /></NavLink></li>
                             : <li><NavLink activeClassName={styles.active} to='/cart'><Bag /></NavLink></li>
                         }
-                        <li><NavLink activeClassName={styles.active} to='/favorite'><Like/></NavLink></li>
+                        {!!favorite
+                          ? <li data-cart={favorite} className={styles.cart}><NavLink activeClassName={styles.active} to='/favorite'><Like/></NavLink></li>
+                          : <li><NavLink activeClassName={styles.active} to='/favorite'><Like/></NavLink></li>
+                        }
+
                     </ul>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 import {call, delay, put, select, takeLatest} from "redux-saga/effects";
 import axios from "axios";
-import {addToCartFailure, addToCartSuccess, hideSuccessAddAlert, showSuccessAddAlert} from "../action";
+import {addToCartFailure, addToCartSuccess, hideSuccessAddAlert, showSuccessAddAlert} from "../actions";
 import {ADD_PRODUCT_TO_CART_REQUEST} from "../constans";
 
 const addToCart = (id) => axios.get(`/api/products/${id}`);

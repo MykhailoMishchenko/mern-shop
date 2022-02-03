@@ -7,7 +7,7 @@ import {getLastPrice} from "../../../utils/getLastPrice";
 import {calcSalePrice} from "../../../utils/calcSalePrice";
 import {calcFinalPrice} from "../../../utils/calcFinalPrice";
 import {NavLink, useHistory} from "react-router-dom";
-import {addToCartRequest, removeFromCartRequest} from "../../../redux/Cart/action";
+import {addToCartRequest, removeFromCartRequest} from "../../../redux/Cart/actions";
 import Spinner from "../../../common/Spinner/Spinner";
 
 const CartProducts = ({products}) => {

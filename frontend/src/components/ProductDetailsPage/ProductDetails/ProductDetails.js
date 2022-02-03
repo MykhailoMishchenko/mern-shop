@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import styles from "./ProductDetails.module.scss";
 import {ScrollToTopOnMount} from "../../../common/ScrollToTop/ScrollToTopOnMount";
 import ProductDetailsNav from "../ProductDetailsNav/ProductDetailsNav";
@@ -13,8 +13,11 @@ import MasterCard from "../../../assets/image/icon/MasterCard.png";
 import NovaPoshta from "../../../assets/image/icon/novaposhta.png";
 import {useHistory, useParams} from "react-router-dom";
 import Title from "../../../common/Title/Title";
+import {useSelector} from "react-redux";
 
 const ProductDetails = ({product}) => {
+
+  const [isFavorite, setIsFavorite] = useState(false);
   const [qty, setQty] = useState(1);
   const history = useHistory();
   const params = useParams();
@@ -22,6 +25,23 @@ const ProductDetails = ({product}) => {
   const addToCartHandler = () => {
     history.push(`/cart/${params.id}?qty=${qty}`)
   }
+  const addToFavoriteHandler = () => {
+    history.push(`/favorite/${params.id}`)
+  }
+
+  const {
+    favoriteItems
+  } = useSelector(state => state?.favorite)
+
+  useEffect(() => {
+    favoriteItems.forEach(item => {
+      if(item._id === product._id) {
+        setIsFavorite(true)
+      } else {
+        setIsFavorite(false)
+      }
+    })
+  }, [favoriteItems])
 
   return (
     <>
@@ -39,7 +59,11 @@ const ProductDetails = ({product}) => {
                   <img src={product.image} alt={product.name} />
                 </div>
                 <div className={styles.details}>
-                  <Like className={styles.favorite} />
+                  {
+                    isFavorite
+                    ? <i onClick={() => history.push("/favorite")} className={`${styles.favorite} fas fa-heart heart`}></i>
+                    : <Like className={styles.favorite} onClick={addToFavoriteHandler} />
+                  }
                   <div className={styles.aboutProduct}>
                     <h3>О Товаре</h3>
                     <div className={styles.descriptions}>

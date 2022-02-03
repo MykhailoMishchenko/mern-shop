@@ -1,6 +1,6 @@
 import {delay, put, select, takeLatest} from "redux-saga/effects";
-import {hideSuccessRemoveAlert, removeFromCart, showSuccessRemoveAlert} from "../action";
-import {REMOVE_PRODUCT_FROM_CART, REMOVE_PRODUCT_FROM_CART_REQUEST} from "../constans";
+import {hideSuccessRemoveAlert, removeFromCart, showSuccessRemoveAlert} from "../actions";
+import {REMOVE_PRODUCT_FROM_CART_REQUEST} from "../constans";
 
 function* worker({payload: id}){
   yield put(removeFromCart(id));

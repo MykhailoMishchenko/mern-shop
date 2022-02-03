@@ -51,7 +51,10 @@
       color: #F8F8F8;
       cursor: pointer;
     }
-
+    & .dsbl {
+      background-color: #495057;
+      cursor: not-allowed;
+    }
     & .disable {
       overflow: hidden;
       position: relative;

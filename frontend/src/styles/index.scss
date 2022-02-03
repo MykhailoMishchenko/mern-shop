@@ -8,6 +8,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 * {
@@ -109,3 +110,7 @@ body {
   transform: rotate(180deg);
 }
 
+.heart {
+  font-size: 18px;
+  color: $red;
+}
