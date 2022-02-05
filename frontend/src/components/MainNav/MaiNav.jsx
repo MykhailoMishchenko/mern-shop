@@ -21,7 +21,7 @@ const MainNav = () => {
         <nav className={styles.mainNav}>
             <div className='container'>
                 <div className={styles.main}>
-                    <NavLink to='/'><h1>Online-Shop</h1></NavLink>
+                    <NavLink to='/'><h1>Michael`s shop</h1></NavLink>
                     <ul className={styles.categories}>
                         <li><NavLink activeClassName={styles.active} to='/about-us'>Про нас</NavLink></li>
                         <li><NavLink activeClassName={styles.active} to='/women'>Для девушек</NavLink></li>

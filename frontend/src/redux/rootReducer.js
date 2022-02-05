@@ -5,6 +5,8 @@ import {changeMarkup} from "./Filter/Grid/reducer";
 import {loginReducer} from "./Users/Login/reducer";
 import {favoriteReducer} from "./Favorite/reducer";
 import {registerReducer} from "./Users/Register/reducer";
+import {userDetails} from "./Users/Details/reducer";
+import {updateUserDetailsReducer} from "./Users/UpdateDetails/reducers";
 
 
 export const rootReducer = combineReducers({
@@ -13,5 +15,7 @@ export const rootReducer = combineReducers({
   favorite: favoriteReducer,
   markup: changeMarkup,
   login: loginReducer,
-  registration: registerReducer
+  registration: registerReducer,
+  profile: userDetails,
+  updateProfile: updateUserDetailsReducer
 })

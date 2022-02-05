@@ -17,6 +17,7 @@ const CartProducts = ({products}) => {
 
   const history = useHistory();
 
+  const goToPay = () => history.push("/shipping")
 
   return (
     <div className={styles.wrapper}>
@@ -69,7 +70,7 @@ const CartProducts = ({products}) => {
                                         ))
                                       }
                                     </select>
-                                  </p>_
+                                  </p>
                                 </div>
                                 <div className={styles.characteristic}>
                                   <div className={styles.PriceAndTrash}>
@@ -111,8 +112,9 @@ const CartProducts = ({products}) => {
           </div>
           <div className={styles.goNext}>
             <button
+              onClick={goToPay}
               disabled={products.length === 0}
-              className={products.length === 0 ? styles.btnDisabled : null}>Дальше
+              className={products.length === 0 ? styles.btnDisabled : null}>Перейти к Оплате
             </button>
           </div>
         </div>

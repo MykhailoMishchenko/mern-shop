@@ -18,6 +18,10 @@ import PrivateRoute from "./HOC/PrivateRoute";
 import PublicRoute from "./HOC/PublicRoute";
 import Alert from "./common/Alert/Alert/Alert";
 import FavoriteProductsPage from "./pages/FavoriteProductsPage";
+import ProfilePage from "./pages/ProfilePage";
+import ShippingPage from "./pages/ShippingPage";
+import PaymentsPage from "./pages/PaymentsPage";
+import CreateOrder from "./pages/CreateOrderPage";
 
 const App = () => {
   const {
@@ -39,14 +43,18 @@ const App = () => {
         <ScrollToTop />
         <TopNav/>
         <MaiNav/>
+        <PublicRoute path="/login" redirectTo="/" component={LoginPage} exact restricted/>
         <Route path="/" component={HomePage} exact/>
         <Route path="/women" component={WomenPage} exact/>
         <Route path="/men" component={MenPage} exact/>
         <Route path="/sales" component={SalePage} exact/>
         <Route path="/product/:id" component={ProductDetailsPage}/>
-        <PrivateRoute path="/cart/:id?" component={CartPage}/>
+        <Route path="/cart/:id?" component={CartPage}/>
         <PrivateRoute path="/favorite/:id?" component={FavoriteProductsPage}/>
-        <PublicRoute path="/login" redirectTo="/" component={LoginPage} exact restricted/>
+        <PrivateRoute path="/shipping" component={ShippingPage} exact/>
+        <PrivateRoute path="/payment" component={PaymentsPage} exact/>
+        <PrivateRoute path="/create-order" component={CreateOrder} exact/>
+        <PrivateRoute path="/profile" component={ProfilePage} exact/>
         <Footer/>
         <Author/>
       </Router>

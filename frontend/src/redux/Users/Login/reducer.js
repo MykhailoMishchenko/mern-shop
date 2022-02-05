@@ -6,6 +6,7 @@ import {
   LOGIN_SUCCESS, LOGIN_SUCCESS_ALERT_HIDE,
   LOGIN_SUCCESS_ALERT_SHOW
 } from "./constans";
+import {USER_LOGOUT} from "../Logout/constans";
 
 const initialState = {
   loading: false,
@@ -35,6 +36,14 @@ export const loginReducer = (state = initialState, action) => {
         credentials: null,
         error: action.payload
       };
+    case USER_LOGOUT:
+      return {
+        loading: false,
+        credentials: null,
+        error: null,
+        errorAlert: false,
+        successAlert: false
+      }
     case LOGIN_ERROR_ALERT_SHOW:
       return {
         ...state,
