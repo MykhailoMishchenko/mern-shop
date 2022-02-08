@@ -1,5 +1,5 @@
 import React from "react";
-import ProductDetails from "../components/ProductDetailsPage/ProductDetails/ProductDetails";
+import Main from "../components/ProductDetailsPage/Main/Main";
 import SkeletonProductDetails from "../common/Skeletons/ProductDetails/SkeletonProductDetails";
 import {useGetProductsByIdQuery} from "../redux/Products/productsApi";
 
@@ -12,7 +12,7 @@ const ProductDetailsPage = ({match}) => {
       {
         isLoading
         ? <SkeletonProductDetails />
-        : <ProductDetails product={product}/>
+        : <Main product={product}/>
       }
     </>
   );

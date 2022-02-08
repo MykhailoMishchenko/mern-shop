@@ -1,0 +1,21 @@
+@import "../../../styles/constans";
+@import "../../../styles/mixin";
+
+.wrapper {
+  width: 100%;
+  margin-bottom: 50px;
+
+  & .main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  & h2 {
+    font-size: $title_22\30;
+    text-transform: uppercase;
+    font-weight: $bold;
+    margin: 48px 0 48px;
+    letter-spacing: 0.06em;
+  }
+}

@@ -1,0 +1,13 @@
+.wrapperMain {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+
+  & .details {
+    width: calc(100% - 500px);
+    margin-bottom: 50px;
+    position: relative;
+  }
+}

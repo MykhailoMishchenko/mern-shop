@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Products.module.scss";
 import SkeletonListOfProducts from "../../../common/Skeletons/ListOfProducts/SkeletonListOfProducts";
 import Product from "./Product";
-import EmptyProducts from "../../../common/EmptyPage/HomePage/ListOfProduct/EmptyProducts";
+import EmptyProducts from "../../../common/EmptyPage/ListOfProduct/EmptyProducts";
 import {useHistory} from "react-router-dom";
 
 const Products = ({products, gender, nameForBtn, href, pending}) => {

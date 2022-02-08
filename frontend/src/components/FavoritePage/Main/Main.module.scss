@@ -1,0 +1,45 @@
+@import "../../../styles/constans";
+@import "../../../styles/mixin";
+
+.wrapper {
+  width: 100%;
+  margin-bottom: 50px;
+
+  & .main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  & .emptyWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    & .empty {
+      width: 65%;
+      height: calc(100vh - 350px);
+    }
+
+    & p {
+      font-size: 22px;
+      color: #9a9696;
+
+      & span {
+        font-size: 22px;
+        color: #0BB17F;
+        cursor: pointer;
+      }
+    }
+  }
+
+  & h2 {
+    font-size: $title_22\30;
+    text-transform: uppercase;
+    font-weight: $bold;
+    margin: 48px 0 48px;
+    letter-spacing: 0.06em;
+  }
+}

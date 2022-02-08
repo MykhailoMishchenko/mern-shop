@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {addToFavoriteRequest} from "../redux/Favorite/actions";
 import Title from "../common/Title/Title";
-import FavoriteProducts from "../components/FavoritePage/FavoriteProducts/FavoriteProducts";
+import Main from "../components/FavoritePage/Main/Main";
 
 const FavoriteProductsPage = ({match, location}) => {
 
@@ -20,7 +20,7 @@ const FavoriteProductsPage = ({match, location}) => {
     <div>
       <div className="container">
         <Title title="Онлайн магазин | Избранное"/>
-        <FavoriteProducts products={favoriteItems} />
+        <Main products={favoriteItems} />
       </div>
     </div>
   );
