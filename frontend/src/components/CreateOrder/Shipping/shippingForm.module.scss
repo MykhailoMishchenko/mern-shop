@@ -35,12 +35,18 @@
         }
       }
     }
+
     & button {
       padding: 15px 25px;
       margin-top: 25px;
       background-color: #121212;
       color: #F8F8F8;
       cursor: pointer;
+    }
+
+    & .dsbl {
+      background-color: #495057;
+      cursor: not-allowed;
     }
   }
 }

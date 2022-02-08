@@ -16,6 +16,14 @@ const userCredentials = localStorage.getItem('userCredentials')
   ? JSON.parse(localStorage.getItem('userCredentials'))
   : null
 
+const shippingInformation = localStorage.getItem('shippingInformation')
+  ? JSON.parse(localStorage.getItem('shippingInformation'))
+  : null
+
+const paymentInformation = localStorage.getItem('paymentInformation')
+  ? JSON.parse(localStorage.getItem('paymentInformation'))
+  : null
+
 const initialState = {
   cart: {
     cartItems: cartItemsFromStorage
@@ -25,6 +33,10 @@ const initialState = {
   },
   favorite: {
     favoriteItems: favoriteItemsFromStorage
+  },
+  order: {
+    shipping: shippingInformation,
+    payment: paymentInformation
   }
 };
 

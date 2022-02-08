@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter as Router, Route, useHistory, useLocation, useParams} from "react-router-dom";
+import {BrowserRouter as Router, Route} from "react-router-dom";
 import ScrollToTop from "./common/ScrollToTop/ScrollToTop";
 import TopNav from "./components/TopNav/TopNav";
 import MaiNav from "./components/MainNav/MaiNav";

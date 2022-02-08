@@ -7,15 +7,17 @@ import {favoriteReducer} from "./Favorite/reducer";
 import {registerReducer} from "./Users/Register/reducer";
 import {userDetails} from "./Users/Details/reducer";
 import {updateUserDetailsReducer} from "./Users/UpdateDetails/reducers";
+import {addShippingInformation} from "./Order/reducer";
 
 
 export const rootReducer = combineReducers({
   [productsApi?.reducerPath]: productsApi?.reducer,
-  cart: cartReducer,
-  favorite: favoriteReducer,
-  markup: changeMarkup,
   login: loginReducer,
   registration: registerReducer,
   profile: userDetails,
-  updateProfile: updateUserDetailsReducer
+  updateProfile: updateUserDetailsReducer,
+  cart: cartReducer,
+  order: addShippingInformation,
+  favorite: favoriteReducer,
+  markup: changeMarkup,
 })

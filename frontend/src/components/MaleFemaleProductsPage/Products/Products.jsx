@@ -81,7 +81,6 @@ const Products = ({data, isSale}) => {
         <div className={styles.wrapper}>
           <div className={styles.filter}>
             <span onClick={() => setFilterIsActive(!filterIsActive)}><FilterImg /></span>
-            {/*<button>Очистить фильтр <i className="far fa-trash-alt"></i></button>*/}
           </div>
           <div className={styles.grid}>
            <i className={isGrid ? "fas fa-grip-lines filter_icon" : "fas fa-grip-lines filter_icon active_icon"} onClick={changeToLineHandler}></i>

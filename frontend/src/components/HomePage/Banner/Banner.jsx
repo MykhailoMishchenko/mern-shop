@@ -13,7 +13,7 @@ SwiperCore.use([Navigation, Autoplay]);
 const Banner = () => {
     const slides = [
         <SwiperSlide key={`1`}>
-            <img src="/sunglasses/slider/slider-4.jpeg" alt=""/>
+            <img src="/sunglasses/test.JPG" alt=""/>
         </SwiperSlide>,
         <SwiperSlide key={`2`}>
             <img src="/sunglasses/slider/slider-2.jpeg" alt=""/>

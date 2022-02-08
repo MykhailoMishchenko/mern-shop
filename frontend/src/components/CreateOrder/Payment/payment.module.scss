@@ -11,22 +11,28 @@
   }
   & .form {
     width: 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+
     & .info {
-      margin-top: 25px;
+      margin: 50px 0;
       width: 100%;
-      height: 300px;
-      transition: .2s ease-in-out;
-      &:hover {
-        -webkit-box-shadow: 0px 0px 47px -6px rgba(34, 60, 80, 0.2) inset;
-        -moz-box-shadow: 0px 0px 47px -6px rgba(34, 60, 80, 0.2) inset;
-        box-shadow: 0px 0px 47px -6px rgba(34, 60, 80, 0.2) inset;
-        transition: .7s ease-in-out;
+
+      & ul {
+        list-style: square;
+
+        & h5 {
+          font-weight: 600;
+          font-size: 22px;
+          line-height: 36px;
+          letter-spacing: 0.06em;
+          opacity: 0.6;
+          margin-bottom: 25px;
+        }
+
+        & li {
+          font-size: 18px;
+          margin-left: 50px;
+        }
       }
-      border-radius: 5px;
     }
     & .radio {
       display: grid;
@@ -39,6 +45,8 @@
       width: 100px;
       opacity: 0.8;
       position: relative;
+      cursor: pointer;
+
       & img {
         width: 100%;
         height: 100%;
@@ -67,6 +75,10 @@
       background-color: #121212;
       color: #F8F8F8;
       cursor: pointer;
+    }
+    & .dsbl {
+      background-color: #495057;
+      cursor: not-allowed;
     }
   }
 }
