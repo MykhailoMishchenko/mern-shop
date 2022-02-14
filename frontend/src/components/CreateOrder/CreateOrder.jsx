@@ -20,7 +20,7 @@ const CreateOrder = () => {
           payment={payment}
           cartItems={cartItems}
         />
-        <Summary cartItems={cartItems} />
+        <Summary cartItems={cartItems} shipping={shipping} payment={payment} />
       </div>
       <YourOrder cartItems={cartItems} />
     </>

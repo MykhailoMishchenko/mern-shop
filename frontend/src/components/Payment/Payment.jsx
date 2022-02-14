@@ -5,7 +5,7 @@ import Image from "./Image/Image";
 import Form from "./Form/Form";
 import {useHistory} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {addPaymentInformation} from "../../redux/Order/actions";
+import {addPaymentInformation} from "../../redux/Order/CreateOrderLocal/actions";
 
 const Payment = () => {
 

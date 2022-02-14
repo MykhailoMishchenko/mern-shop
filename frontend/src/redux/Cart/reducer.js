@@ -24,13 +24,13 @@ export const cartReducer = (state = initialState, action) => {
       };
     case ADD_PRODUCT_TO_CART_SUCCESS:
       const item = action.payload;
-      const existItem = state.cartItems.find((x) => x._id === item._id);
+      const existItem = state.cartItems.find((x) => x.product === item.product);
       if (existItem) {
         return {
           ...state,
           loading: false,
           cartItems: state.cartItems.map((x) =>
-            x._id === existItem._id ? item : x
+            x.product === existItem.product ? item : x
           )
         };
       } else {

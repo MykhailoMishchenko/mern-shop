@@ -4,7 +4,7 @@ import {addToCartRequest, removeFromCartRequest} from "../../../../../redux/Cart
 import {calcSalePrice, getLastPrice} from "../../../../../utils/calcPrice";
 import {ReactComponent as Trash} from "../../../../../assets/image/icon/trash.svg";
 
-const Details = ({category, brand, gender, qty, dispatch, _id, countInStock, sale, price, percent}) => {
+const Details = ({category, brand, gender, qty, dispatch, product, countInStock, sale, price, percent}) => {
   return (
     <div className={styles.details}>
       <div className={styles.characteristics}>
@@ -25,7 +25,7 @@ const Details = ({category, brand, gender, qty, dispatch, _id, countInStock, sal
           <p>
             <select
               value={qty}
-              onChange={e => dispatch(addToCartRequest(_id, Number(e.target.value)))}
+              onChange={e => dispatch(addToCartRequest(product, Number(e.target.value)))}
             >
               {
                 [...Array(countInStock).keys()].map(x => (
@@ -47,7 +47,7 @@ const Details = ({category, brand, gender, qty, dispatch, _id, countInStock, sal
                   ₴ {Math.floor(calcSalePrice(price, percent))}</strong>
                 : <strong>₴ {price}</strong>
             }
-            <Trash onClick={() => dispatch(removeFromCartRequest(_id))} />
+            <Trash onClick={() => dispatch(removeFromCartRequest(product))} />
           </div>
         </div>
       </div>

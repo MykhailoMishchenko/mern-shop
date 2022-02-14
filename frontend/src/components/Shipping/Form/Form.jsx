@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Form.module.scss";
 import Button from "./Button/Button";
 
-const Form = ({city, street, department, country, setForm, disabled, saveShippingInformation}) => {
+const Form = ({city, address, postalOffice, country, setForm, disabled, saveShippingInformation}) => {
   return (
     <div className={styles.form}>
       <label>
@@ -17,8 +17,8 @@ const Form = ({city, street, department, country, setForm, disabled, saveShippin
       <label>
         Улица
         <input
-          value={street}
-          onChange={(e) => setForm("street", e.target.value)}
+          value={address}
+          onChange={(e) => setForm("address", e.target.value)}
           type="text"
           placeholder="Введите улицу доставки"
         />
@@ -26,8 +26,8 @@ const Form = ({city, street, department, country, setForm, disabled, saveShippin
       <label>
         Отделение Новой Почты
         <input
-          value={department}
-          onChange={(e) => setForm("department", e.target.value)}
+          value={postalOffice}
+          onChange={(e) => setForm("postalOffice", e.target.value)}
           type="text"
           placeholder="Введите отделение Новой Почты"
         />

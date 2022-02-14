@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {ReactComponent as ShippingImage} from "../../assets/image/storyset/shipping.svg";
 import Image from "./Image/Image";
 import Form from "./Form/Form";
-import {addShippingInformation} from "../../redux/Order/actions";
+import {addShippingInformation} from "../../redux/Order/CreateOrderLocal/actions";
 
 const Shipping = () => {
 
@@ -16,8 +16,8 @@ const Shipping = () => {
   const
     [shippingInformation, setShippingInformation] = useState({
       city: "",
-      street: "",
-      department: "",
+      address: "",
+      postalOffice: "",
       country: ""
     }),
     {
@@ -39,14 +39,14 @@ const Shipping = () => {
     if (shipping) {
       setShippingInformation({
         city: shipping.city,
-        street: shipping.street,
-        department: shipping.department,
+        address: shipping.address,
+        postalCode: shipping.postalOffice,
         country: shipping.country
       });
     }
   }, []);
 
-  const disabled = !shippingInformation.city || !shippingInformation.street || !shippingInformation.department || !shippingInformation.country;
+  const disabled = !shippingInformation.city || !shippingInformation.address || !shippingInformation.postalOffice || !shippingInformation.country;
 
   return (
     <>
@@ -58,8 +58,8 @@ const Shipping = () => {
           setForm={changeForm}
           disabled={disabled}
           city={shippingInformation.city}
-          street={shippingInformation.street}
-          department={shippingInformation.department}
+          address={shippingInformation.address}
+          postalOffice={shippingInformation.postalOffice}
           country={shippingInformation.country}
         />
       </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Table.module.scss";
 
-const Table = ({shipping: {city, country, street, department}, payment, cartItems}) => {
+const Table = ({shipping: {city, country, address, postalOffice}, payment, cartItems}) => {
   return (
     <div className={styles.detailsContainer}>
       <table className="styled-table">
@@ -14,7 +14,7 @@ const Table = ({shipping: {city, country, street, department}, payment, cartItem
         <tbody>
         <tr>
           <td>Адрес</td>
-          <td>{city}, {country}. {street}. Отделение Новой почты - {department}</td>
+          <td>{city}, {country}. {address}. Отделение Новой почты - {postalOffice}</td>
         </tr>
         <tr>
           <td>Метод оплаты</td>

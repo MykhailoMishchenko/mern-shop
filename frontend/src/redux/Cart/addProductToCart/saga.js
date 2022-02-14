@@ -13,7 +13,7 @@ function* worker({payload}){
     yield put(
       addToCartSuccess(
         {
-          _id, name, image, brand, category,
+          product: _id, name, image, brand, category,
           gender, sale, percent, price,
           countInStock, qty
         }

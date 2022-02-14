@@ -6,7 +6,7 @@ const YourOrder = ({cartItems}) => {
     <>
       <h4>Ваш заказ</h4>
       {
-        cartItems.map(product => <Product key={product._id} product={product} />)
+        cartItems.map(product => <Product key={product.product} product={product} />)
       }
     </>
   );

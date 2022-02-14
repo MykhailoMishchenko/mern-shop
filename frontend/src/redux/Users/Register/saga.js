@@ -1,5 +1,5 @@
 import axios from "axios";
-import {call, delay, put, takeLatest} from "redux-saga/effects";
+import {call, put, takeLatest} from "redux-saga/effects";
 import {registerFail, registerSuccess} from "./actions";
 import {login} from "../Login/actions";
 import {REGISTER_REQUEST} from "./constans";

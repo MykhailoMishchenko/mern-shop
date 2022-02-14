@@ -1,16 +1,41 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styles from "./Summary.module.scss";
+import {useDispatch, useSelector} from "react-redux";
+import {createOrder} from "../../../redux/Order/CreateOrderServer/action";
 
-const Summary = ({cartItems}) => {
+const Summary = ({cartItems, payment, shipping}) => {
+
+  const {
+    loading, order, error
+  } = useSelector(state => state?.createOrder);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if(order){
+      console.log(order);
+    }
+  }, [order])
+
 
   //calculate price
   const count = cartItems.reduce((acc, item) => acc + item.qty, 0);
-  const itemsPrice = cartItems.reduce((acc,item) => acc + item.price * item.qty, 0);
+  const itemsPrice = cartItems.reduce((acc, item) => acc + item.price * item.qty, 0);
   const addDecimals = (num) => {
-    return (Math.round(num * 100) / 100).toFixed(2)
-  }
-  const taxPrice = addDecimals(Number((0.15 * itemsPrice).toFixed(2)))
-  const totalPrice = (Number(itemsPrice) + Number(taxPrice)).toFixed(2)
+    return (Math.round(num * 100) / 100).toFixed(2);
+  };
+  const taxPrice = addDecimals(Number((0.15 * itemsPrice).toFixed(2)));
+  const totalPrice = (Number(itemsPrice) + Number(taxPrice)).toFixed(2);
+
+  const createOrderHandler = () => dispatch(createOrder({
+    orderItems: cartItems,
+    shippingAddress: shipping,
+    paymentMethod: payment,
+    itemsPrice,
+    shippingPrice: 0,
+    taxPrice,
+    totalPrice
+  }));
 
   return (
     <div className={styles.summaryContainer}>
@@ -28,7 +53,7 @@ const Summary = ({cartItems}) => {
           </div>
         </div>
         <div className={styles.summaryButton}>
-          <button>
+          <button onClick={createOrderHandler}>
             Разместить Заказ
           </button>
         </div>
