@@ -1,0 +1,25 @@
+@import "src/styles/constans";
+@import "src/styles/mixin";
+
+.photo {
+  width: 275px;
+  height: 175px;
+  position: relative;
+
+  & .discount {
+    position: absolute;
+    inset: 0;
+    width: 53px;
+    height: 31px;
+    background-color: $pink;
+    color: $white;
+    font-weight: $bold;
+    @include flexCenter;
+  }
+
+  & img {
+    width: 275px;
+    height: 175px;
+    object-fit: cover;
+  }
+}

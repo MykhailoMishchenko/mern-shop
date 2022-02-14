@@ -1,0 +1,40 @@
+.form {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  & label {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin-top: 25px;
+    opacity: 0.8;
+    position: relative;
+
+    & input {
+      padding: 10px 25px;
+      background-color: rgba(173, 173, 173, 0.3);
+      border: none;
+      outline-color: #4b4949;
+      margin-top: 5px;
+      &::placeholder {
+        color: black;
+        opacity: 0.4;
+      }
+    }
+  }
+
+  & button {
+    padding: 15px 25px;
+    margin-top: 25px;
+    background-color: #121212;
+    color: #F8F8F8;
+    cursor: pointer;
+  }
+
+  & .dsbl {
+    background-color: #495057;
+    cursor: not-allowed;
+  }
+}

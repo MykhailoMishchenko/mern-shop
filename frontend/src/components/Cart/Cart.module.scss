@@ -1,0 +1,94 @@
+@import "src/styles/constans";
+@import "src/styles/mixin";
+
+.wrapper {
+  width: 100%;
+  margin-bottom: 50px;
+
+  & .main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  & .emptyWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    & .empty {
+      width: 65%;
+      height: calc(100vh - 350px);
+    }
+    & p {
+      font-size: 22px;
+      color: #9a9696;
+      & span {
+        font-size: 22px;
+        color: #0BB17F;
+        cursor: pointer;
+      }
+    }
+  }
+
+  & h2 {
+    font-size: $title_22\30;
+    text-transform: uppercase;
+    font-weight: $bold;
+    margin: 48px 0 48px;
+    letter-spacing: 0.06em;
+  }
+
+  & .order {
+    width: 33%;
+    border: 3px solid $white;
+
+    & .orderTitle {
+      width: 100%;
+      padding: 25px 15px;
+      border-bottom: 3px solid $white;
+
+      & h3 {
+        font-size: $title_22\30;
+        text-transform: uppercase;
+        font-weight: $bold;
+        letter-spacing: 0.06em;
+        opacity: 0.6;
+      }
+
+      & p {
+        font-size: $title_22\30;
+        text-transform: uppercase;
+        font-weight: $bold;
+        letter-spacing: 0.06em;
+        line-height: 36px;
+        opacity: 0.6;
+      }
+    }
+
+    & .goNext {
+      padding: 25px 15px;
+      @include flexCenter;
+
+      .btnDisabled {
+        background-color: #4b4949;
+        cursor: not-allowed;
+      }
+
+      & button {
+        margin: 0;
+        width: 100%;
+        padding: 27px 24px 27px;
+        background-color: $dark;
+        color: white;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 15px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+    }
+  }
+}

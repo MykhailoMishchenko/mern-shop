@@ -1,27 +1,26 @@
 import React from "react";
 import {BrowserRouter as Router, Route} from "react-router-dom";
-import ScrollToTop from "./common/ScrollToTop/ScrollToTop";
-import TopNav from "./components/TopNav/TopNav";
-import MaiNav from "./components/MainNav/MaiNav";
-import Footer from "./components/Footer/Footer";
-import Author from "./components/Author/Author";
-import HomePage from "./pages/HomePage";
-import ProductDetailsPage from "./pages/ProductDetailsPage";
-import CartPage from "./pages/CartPage";
 import {useSelector} from "react-redux";
-import FixedBottomAlert from "./common/Alert/FixedBottomAlert/FixedBottomAlert";
+import HomePage from "./pages/HomePage";
+import ScrollToTop from "./common/ScrollToTop/ScrollToTop";
+import TopNav from "./components/Nav/TopNav/TopNav";
+import Nav from "./components/Nav/Nav/Nav";
+import PublicRoute from "./HOC/PublicRoute";
+import LoginPage from "./pages/LoginPage";
 import WomenPage from "./pages/WomenPage";
 import MenPage from "./pages/MenPage";
-import SalePage from "./pages/SalePage";
-import LoginPage from "./pages/LoginPage";
-import PrivateRoute from "./HOC/PrivateRoute";
-import PublicRoute from "./HOC/PublicRoute";
-import Alert from "./common/Alert/Alert/Alert";
+import ProductDetailsPage from "./pages/ProductDetailsPage";
+import CartPage from "./pages/CartPage";
 import FavoriteProductsPage from "./pages/FavoriteProductsPage";
+import SalesPage from "./pages/SalesPage";
+import PrivateRoute from "./HOC/PrivateRoute";
 import ProfilePage from "./pages/ProfilePage";
 import ShippingPage from "./pages/ShippingPage";
-import PaymentsPage from "./pages/PaymentsPage";
-import CreateOrder from "./pages/CreateOrderPage";
+import PaymentPage from "./pages/PaymentPage";
+import CreateOrderPage from "./pages/CreateOrderPage";
+import Alert from "./common/Alerts/Alert/Alert";
+import Greetings from "./common/Alerts/Greetings/Greetings";
+
 
 const App = () => {
   const {
@@ -40,29 +39,27 @@ const App = () => {
   return (
     <>
       <Router>
-        <ScrollToTop />
+        <ScrollToTop/>
         <TopNav/>
-        <MaiNav/>
+        <Nav/>
         <PublicRoute path="/login" redirectTo="/" component={LoginPage} exact restricted/>
         <Route path="/" component={HomePage} exact/>
         <Route path="/women" component={WomenPage} exact/>
         <Route path="/men" component={MenPage} exact/>
-        <Route path="/sales" component={SalePage} exact/>
+        <Route path="/sales" component={SalesPage} exact/>
         <Route path="/product/:id" component={ProductDetailsPage}/>
         <Route path="/cart/:id?" component={CartPage}/>
-        <PrivateRoute path="/favorite/:id?" component={FavoriteProductsPage}/>
-        <PrivateRoute path="/shipping" component={ShippingPage} exact/>
-        <PrivateRoute path="/payment" component={PaymentsPage} exact/>
-        <PrivateRoute path="/create-order" component={CreateOrder} exact/>
+        <Route path="/favorite/:id?" component={FavoriteProductsPage}/>
         <PrivateRoute path="/profile" component={ProfilePage} exact/>
-        <Footer/>
-        <Author/>
+        <PrivateRoute path="/shipping" component={ShippingPage} exact/>
+        <PrivateRoute path="/payment" component={PaymentPage} exact/>
+        <PrivateRoute path="/create-order" component={CreateOrderPage} exact/>
       </Router>
-      <Alert credentials={credentials} isVisible={successAlert}/>
-      { removeAlert && <FixedBottomAlert msg="Товар успешно удален из Вашей корзины!" color="green" />}
-      { addAlert && <FixedBottomAlert msg="Товар успешно добавлен в Вашу корзину!" color="green" />}
-      { removeAlertFavorite && <FixedBottomAlert msg="Товар успешно удален из Вашего списка избранного!" color="green" />}
-      { addAlertFavorite && <FixedBottomAlert msg="Товар успешно добавлен в Ваш список избранного!" color="green" />}
+      <Greetings credentials={credentials} isVisible={successAlert}/>
+      {removeAlert && <Alert color="green" msg="Товар успешно удален из Вашей корзины!"/>}
+      {addAlert && <Alert color="green" msg="Товар успешно добавлен в Вашу корзину!"/>}
+      {removeAlertFavorite && <Alert color="green" msg="Товар успешно удален из Вашего списка избранного!"/>}
+      {addAlertFavorite && <Alert color="green" msg="Товар успешно добавлен в Ваш список избранного!"/>}
     </>
   );
 };

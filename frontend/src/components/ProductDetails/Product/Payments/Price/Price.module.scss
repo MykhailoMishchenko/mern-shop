@@ -1,0 +1,28 @@
+@import "src/styles/constans";
+@import "src/styles/mixin";
+
+
+strong {
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 36px;
+  position: relative;
+}
+
+.withBefore {
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 36px;
+  position: relative;
+
+  &::before {
+    content: attr(data-price);
+    position: absolute;
+    top: -25px;
+    left: 0;
+    font-size: $title_16\24;
+    font-weight: $bold;
+    color: $red;
+    text-decoration: line-through;
+  }
+}

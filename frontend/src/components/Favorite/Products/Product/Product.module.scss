@@ -1,0 +1,27 @@
+@import "src/styles/constans";
+@import "src/styles/mixin";
+
+.item {
+  width: 1109px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 22px;
+
+
+  & .description {
+    width: 70%;
+
+    & a {
+      text-decoration: none;
+    }
+
+    & h3 {
+      font-size: $title_16\24;
+      text-transform: uppercase;
+      font-weight: $bold;
+      letter-spacing: 0.06em;
+      opacity: 0.6;
+    }
+  }
+}

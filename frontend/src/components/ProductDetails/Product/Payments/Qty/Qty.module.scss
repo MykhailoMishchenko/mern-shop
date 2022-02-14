@@ -1,0 +1,61 @@
+@import "src/styles/constans";
+@import "src/styles/mixin";
+
+.Qty {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  grid-gap: 5px;
+  gap: 5px;
+  padding: 17px 24px 16px;
+  background-color: $white;
+
+  & p {
+    font-weight: 400;
+    font-size: $title_16\24;
+    line-height: 36px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  & select {
+    border: none;
+    outline: none;
+    font-weight: 400;
+    font-size: $title_16\24;
+    line-height: 36px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background-color: transparent;
+  }
+}
+
+.QtyDisabled {
+  cursor: not-allowed;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  grid-gap: 5px;
+  gap: 5px;
+  padding: 17px 24px 16px;
+  background-color: $white;
+
+  & p {
+    font-weight: 400;
+    font-size: $title_16\24;
+    line-height: 36px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  & select {
+    border: none;
+    outline: none;
+    font-weight: 400;
+    font-size: $title_16\24;
+    line-height: 36px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background-color: transparent;
+  }
+}

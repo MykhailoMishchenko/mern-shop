@@ -1,0 +1,13 @@
+.title {
+  width: 100%;
+  text-decoration: none;
+  & p {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    margin-top: 16px;
+    margin-bottom: 12px;
+    opacity: 0.6;
+  }
+}

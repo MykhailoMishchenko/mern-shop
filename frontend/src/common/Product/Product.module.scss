@@ -1,0 +1,26 @@
+@import "src/styles/constans";
+@import "src/styles/mixin";
+
+.item {
+  width: 255px;
+  position: relative;
+  padding: 0 5px 5px 5px;
+  -webkit-box-shadow: 0px 0px 42px 0px rgba(0, 0, 0, 0.02);
+  -moz-box-shadow: 0px 0px 42px 0px rgba(0, 0, 0, 0.02);
+  box-shadow: 0px 0px 42px 0px rgba(0, 0, 0, 0.02);
+  margin-bottom: 25px;
+
+  & img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  & .info {
+    @include flexBetween;
+    flex-wrap: wrap;
+
+    & a {
+      text-decoration: none;
+    }
+  }
+}

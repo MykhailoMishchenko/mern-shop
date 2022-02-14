@@ -1,0 +1,22 @@
+@import "src/styles/constans";
+@import "src/styles/mixin";
+
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+
+//Ваш заказ
+h4 {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 36px;
+  letter-spacing: 0.06em;
+  margin-bottom: 55px;
+}
+
