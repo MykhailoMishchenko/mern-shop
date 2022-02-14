@@ -1,0 +1,13 @@
+@import "../../../../../styles/constans";
+@import "../../../../../styles/mixin";
+
+.discount {
+  position: absolute;
+  inset: 0;
+  width: 53px;
+  height: 31px;
+  background-color: $pink;
+  @include flexCenter;
+  color: $white;
+  font-weight: $bold;
+}

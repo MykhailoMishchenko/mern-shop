@@ -1,0 +1,97 @@
+@import "src/styles/constans";
+@import "src/styles/mixin";
+
+.details {
+  width: 100%;
+  @include flexGap(15px);
+
+  & .characteristics {
+    width: 100%;
+    margin-top: 15px;
+
+    & .characteristic {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
+      & p {
+        border-bottom: 2px solid $white;
+        font-weight: 400;
+        font-size: $title_16\24;
+        line-height: 36px;
+        letter-spacing: 0.06em;
+        width: 50%;
+      }
+
+      & p:last-child {
+        border-left: 2px solid $white;
+        padding-left: 15px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      & select {
+        border: none;
+        outline: none;
+        font-weight: 400;
+        font-size: $title_16\24;
+        line-height: 36px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        background-color: transparent;
+      }
+
+      & strong {
+        font-weight: bold;
+        font-size: 25px;
+        line-height: 36px;
+        position: relative;
+        margin-top: 15px;
+      }
+
+      & .PriceAndTrash {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        & .withBefore {
+          font-weight: bold;
+          font-size: 25px;
+          line-height: 36px;
+          position: relative;
+
+          &::before {
+            content: attr(data-price);
+            position: absolute;
+            top: -20px;
+            left: 0;
+            font-size: $title_16\24;
+            font-weight: $bold;
+            color: $red;
+            text-decoration: line-through;
+          }
+        }
+
+        & svg {
+          margin-top: 12px;
+          cursor: pointer;
+
+          & path {
+            stroke: #121212;
+            transition: stroke 0.3s ease;
+          }
+
+          &:hover path {
+            stroke: $red;
+            transition: stroke 0.3s ease;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+@import "src/styles/constans";
+@import "src/styles/mixin";
+
+.container {
+  & h4 {
+    font-size: $title_16\24;
+    text-transform: uppercase;
+    font-weight: $bold;
+    letter-spacing: 0.06em;
+    opacity: 0.6;
+  }
+  & label {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin-top: 25px;
+    opacity: 0.8;
+    position: relative;
+
+    & input {
+      padding: 10px 25px;
+      background-color: rgba(173, 173, 173, 0.3);
+      border: none;
+      outline-color: #4b4949;
+      margin-top: 5px;
+
+      &::placeholder {
+        color: black;
+      }
+    }
+  }
+}
+
+

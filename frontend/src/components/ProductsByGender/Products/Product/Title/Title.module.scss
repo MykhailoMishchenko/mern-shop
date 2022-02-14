@@ -1,0 +1,29 @@
+@import "../../../../../styles/constans";
+@import "../../../../../styles/mixin";
+
+.nameOfProduct {
+  width: 100%;
+  margin-top: 16px;
+  margin-bottom: 12px;
+  opacity: 0.6;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.title {
+  width: 100%;
+
+  & p {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+
+.nameOfProductList {
+  margin-top: 16px;
+  margin-bottom: 12px;
+  font-size: 32px;
+  opacity: 0.6;
+}

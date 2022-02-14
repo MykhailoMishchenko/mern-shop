@@ -1,0 +1,15 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 36px;
+  letter-spacing: 0.06em;
+  margin-bottom: 25px;
+}

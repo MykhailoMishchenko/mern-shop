@@ -1,0 +1,14 @@
+@import "../../../styles/constans";
+@import "../../../styles/mixin";
+
+.listProduct {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.listProductInLine {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+

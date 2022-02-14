@@ -1,0 +1,50 @@
+@import "../../../../../styles/constans";
+@import "../../../../../styles/mixin";
+
+.priceOfProduct {
+  font-size: $title_14\22;
+  font-weight: $bold;
+}
+
+.newPrice {
+  font-size: $title_14\22;
+  font-weight: $bold;
+  position: relative;
+
+  &::before {
+    content: attr(data-price);
+    position: absolute;
+    top: -12px;
+    left: 0;
+    font-size: $small\18;
+    font-weight: $bold;
+    color: $red;
+    text-decoration: line-through;
+  }
+}
+
+
+.priceOfProductList {
+  font-size: $title_14\22;
+  font-weight: $bold;
+  font-size: 28px;
+}
+
+.newPriceList {
+  font-size: $title_14\22;
+  font-weight: $bold;
+  position: relative;
+  font-size: 28px;
+
+  &::before {
+    content: attr(data-price);
+    position: absolute;
+    top: -12px;
+    left: 0;
+    font-size: $small\18;
+    font-weight: $bold;
+    color: $red;
+    text-decoration: line-through;
+    font-size: 15px;
+  }
+}
