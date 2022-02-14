@@ -20,6 +20,8 @@ import PaymentPage from "./pages/PaymentPage";
 import CreateOrderPage from "./pages/CreateOrderPage";
 import Alert from "./common/Alerts/Alert/Alert";
 import Greetings from "./common/Alerts/Greetings/Greetings";
+import Footer from "./components/Footer/Footer";
+import Author from "./components/Author/Author";
 
 
 const App = () => {
@@ -54,6 +56,8 @@ const App = () => {
         <PrivateRoute path="/shipping" component={ShippingPage} exact/>
         <PrivateRoute path="/payment" component={PaymentPage} exact/>
         <PrivateRoute path="/create-order" component={CreateOrderPage} exact/>
+        <Footer/>
+        <Author/>
       </Router>
       <Greetings credentials={credentials} isVisible={successAlert}/>
       {removeAlert && <Alert color="green" msg="Товар успешно удален из Вашей корзины!"/>}
