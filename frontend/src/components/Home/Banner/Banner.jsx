@@ -8,7 +8,7 @@ import bannerWoman from "../../../assets/image/stock/banner-woman.jpeg";
 import bannerMan from "../../../assets/image/stock/banner-man.jpeg";
 import bannerAccessories from "../../../assets/image/stock/accessories.svg";
 
-SwiperCore.use([Navigation, Autoplay]);
+SwiperCore.use([Autoplay]);
 
 const Banner = () => {
   const slides = [
@@ -35,7 +35,7 @@ const Banner = () => {
   return (
     <section className={styles.banner}>
       <div className={styles.left}>
-        <Swiper id="main" className={styles.slider} navigation loop autoplay>{slides}</Swiper>
+        <Swiper id="main" className={styles.slider} loop autoplay>{slides}</Swiper>
         <h2>НОВАЯ КОЛЛЕКЦИЯ</h2>
       </div>
       <div className={styles.right}>

@@ -9,18 +9,18 @@ import {userDetails} from "./Users/Details/reducer";
 import {updateUserDetailsReducer} from "./Users/UpdateDetails/reducers";
 import {addShippingInformation} from "./Order/CreateOrderLocal/reducer";
 import {createOrderReducer} from "./Order/CreateOrderServer/reducer";
-import {getOrdersApi} from "./Order/MyOrders/myOrdersApi";
+import {getMyOrdersReducer} from "./Order/MyOrders/reducer";
 
 
 export const rootReducer = combineReducers({
   [productsApi?.reducerPath]: productsApi?.reducer,
-  [getOrdersApi?.reducerPath]: getOrdersApi?.reducer,
   login: loginReducer,
   registration: registerReducer,
   profile: userDetails,
   updateProfile: updateUserDetailsReducer,
   cart: cartReducer,
   order: addShippingInformation,
+  myOrders: getMyOrdersReducer,
   createOrder: createOrderReducer,
   favorite: favoriteReducer,
   markup: changeMarkup,

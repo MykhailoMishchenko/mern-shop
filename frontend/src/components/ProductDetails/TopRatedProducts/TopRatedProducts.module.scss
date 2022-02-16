@@ -1,0 +1,9 @@
+@import "src/styles/mixin";
+
+.title {
+  font-size: $title_22;
+  text-transform: uppercase;
+  font-weight: $bold;
+  letter-spacing: 0.06em;
+  opacity: 0.6;
+}

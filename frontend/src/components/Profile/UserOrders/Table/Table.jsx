@@ -9,7 +9,6 @@ const Table = ({orders}) => {
 
   return (
     <div className={styles.container}>
-      <h4>Мои заказы</h4>
       <table className="styled-table">
         <thead>
         <tr>
@@ -22,32 +21,48 @@ const Table = ({orders}) => {
         </tr>
         </thead>
         {
-          !!orders
-            ? <tbody>
-            {
-              orders.map(order => (
-                <tr key={order._id}>
-                  <td>{order._id}</td>
-                  <td>
-                    {format(new Date(order.createdAt), "MM/dd/yyyy")}
-                  </td>
-                  <td>{order.totalPrice}</td>
-                  <td>{order.isPaid ? "Оплачено" : "Не оплачено"}</td>
-                  <td>{order.isDelivered ? "Доставлено" : "Не доставлено"}</td>
-                  <td><button onClick={() => history.push(`/order/${order._id}`)}>Детали</button></td>
-                </tr>
-              ))
-            }
+          orders.length === 0
+          ? <tbody>
+              <tr className={styles.td}>
+                <td className={styles.td}></td>
+                <td className={styles.td}></td>
+                <td className={styles.td}></td>
+                <td className={styles.td}></td>
+                <td className={styles.td}></td>
+                <td className={styles.td}></td>
+              </tr>
+              <tr>
+                <td className={styles.td}></td>
+                <td className={styles.td}></td>
+                <td className={styles.td}></td>
+                <td className={styles.td}></td>
+                <td className={styles.td}></td>
+                <td className={styles.td}></td>
+              </tr>
+              <tr>
+                <td className={styles.td}></td>
+                <td className={styles.td}></td>
+                <td className={styles.td}></td>
+                <td className={styles.td}></td>
+                <td className={styles.td}></td>
+                <td className={styles.td}></td>
+              </tr>
             </tbody>
             : <tbody>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
+              {
+                orders.map(order => (
+                  <tr key={order._id}>
+                    <td>{order._id}</td>
+                    <td>
+                      {format(new Date(order.createdAt), "MM/dd/yyyy")}
+                    </td>
+                    <td>{order.totalPrice}</td>
+                    <td>{order.isPaid ? "Оплачено" : "Не оплачено"}</td>
+                    <td>{order.isDelivered ? "Доставлено" : "Не доставлено"}</td>
+                    <td><button onClick={() => history.push(`/order/${order._id}`)}>Детали</button></td>
+                  </tr>
+                ))
+              }
             </tbody>
         }
       </table>

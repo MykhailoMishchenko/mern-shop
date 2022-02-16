@@ -1,0 +1,17 @@
+@import "src/styles/mixin";
+
+.title {
+  font-size: $title_16\24;
+  text-transform: uppercase;
+  font-weight: $bold;
+  letter-spacing: 0.06em;
+  opacity: 0.6;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}

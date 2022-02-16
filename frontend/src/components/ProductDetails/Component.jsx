@@ -3,6 +3,7 @@ import TitlePage from "../../common/TitlePage/TitlePage";
 import Nav from "./Nav/Nav";
 import Product from "./Product/Product";
 import {useHistory} from "react-router-dom";
+import TopRatedProducts from "./TopRatedProducts/TopRatedProducts";
 
 const Component = ({product}) => {
 
@@ -23,6 +24,7 @@ const Component = ({product}) => {
               history={history}
             />
           <Product product={product} history={history}/>
+          <TopRatedProducts/>
           </>
           : null
       }
