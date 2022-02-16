@@ -14,3 +14,6 @@ const ProfilePage = () => {
 };
 
 export default ProfilePage;
+
+
+// TODO: Создать RTK Query для user details, нужно исправить баг (выводятся все заказы, всех пользователей), сделать лоадер.

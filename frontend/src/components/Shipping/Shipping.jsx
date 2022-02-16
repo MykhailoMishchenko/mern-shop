@@ -40,7 +40,7 @@ const Shipping = () => {
       setShippingInformation({
         city: shipping.city,
         address: shipping.address,
-        postalCode: shipping.postalOffice,
+        postalOffice: shipping.postalOffice,
         country: shipping.country
       });
     }

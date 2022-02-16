@@ -61,4 +61,4 @@ const Component = ({data, isSale}) => {
   );
 };
 
-export default Component;
+export default React.memo(Component);

@@ -16,7 +16,7 @@ function* rootSaga(){
       addProductToCardWatcher(), removeProductFromCartWatcher(),
       loginWatcher(), logoutWatcher(), registerWatcher(),
       addProductToFavoriteWatcher(), removeProductFromFavoriteWatcher(),
-      getUserDetailsWatcher(), updateUserDetailsWatcher(), createOrderWatcher()
+      getUserDetailsWatcher(), updateUserDetailsWatcher(), createOrderWatcher(),
     ]
   );
 }

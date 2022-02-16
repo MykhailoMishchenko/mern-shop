@@ -9,10 +9,12 @@ import {userDetails} from "./Users/Details/reducer";
 import {updateUserDetailsReducer} from "./Users/UpdateDetails/reducers";
 import {addShippingInformation} from "./Order/CreateOrderLocal/reducer";
 import {createOrderReducer} from "./Order/CreateOrderServer/reducer";
+import {getOrdersApi} from "./Order/MyOrders/myOrdersApi";
 
 
 export const rootReducer = combineReducers({
   [productsApi?.reducerPath]: productsApi?.reducer,
+  [getOrdersApi?.reducerPath]: getOrdersApi?.reducer,
   login: loginReducer,
   registration: registerReducer,
   profile: userDetails,
