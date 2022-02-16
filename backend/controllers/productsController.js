@@ -88,6 +88,11 @@ const getProductBySale = asyncHandler(async (req, res) => {
   }
 });
 
+const getTopProducts = asyncHandler(async (req, res) => {
+  const products = await Product.find({}).sort({rating: -1}).limit(5);
+  res.json(products);
+});
+
 export {
   getProducts,
   getProductById,
@@ -95,5 +100,6 @@ export {
   getProductsByMale,
   getProductsByFemaleLimit,
   getProductsByMaleLimit,
-  getProductBySale
+  getProductBySale,
+  getTopProducts
 };
