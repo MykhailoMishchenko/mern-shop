@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import {useSelector} from "react-redux";
 import HomePage from "./pages/HomePage";
@@ -22,6 +22,7 @@ import Alert from "./common/Alerts/Alert/Alert";
 import Greetings from "./common/Alerts/Greetings/Greetings";
 import Footer from "./components/Footer/Footer";
 import Author from "./components/Author/Author";
+import OrderDetailsPage from "./pages/OrderDetailsPage";
 
 
 const App = () => {
@@ -40,25 +41,26 @@ const App = () => {
   return (
     <>
       <Router>
-        <ScrollToTop/>
-        <TopNav/>
-        <Nav/>
-        <PublicRoute path="/login" redirectTo="/" component={LoginPage} exact restricted/>
-        <Route path="/" component={HomePage} exact/>
-        <Route path="/women" component={WomenPage} exact/>
-        <Route path="/men" component={MenPage} exact/>
-        <Route path="/sales" component={SalesPage} exact/>
-        <Route path="/product/:id" component={ProductDetailsPage}/>
-        <Route path="/cart/:id?" component={CartPage}/>
-        <Route path="/favorite/:id?" component={FavoriteProductsPage}/>
-        <PrivateRoute path="/profile" component={ProfilePage} exact/>
-        <PrivateRoute path="/shipping" component={ShippingPage} exact/>
-        <PrivateRoute path="/payment" component={PaymentPage} exact/>
-        <PrivateRoute path="/create-order" component={CreateOrderPage} exact/>
-        <Footer/>
-        <Author/>
+        <ScrollToTop />
+        <TopNav />
+        <Nav />
+        <PublicRoute path="/login" redirectTo="/" component={LoginPage} exact restricted />
+        <Route path="/" component={HomePage} exact />
+        <Route path="/women" component={WomenPage} exact />
+        <Route path="/men" component={MenPage} exact />
+        <Route path="/sales" component={SalesPage} exact />
+        <Route path="/product/:id" component={ProductDetailsPage} />
+        <Route path="/cart/:id?" component={CartPage} />
+        <Route path="/favorite/:id?" component={FavoriteProductsPage} />
+        <PrivateRoute path="/profile" component={ProfilePage} exact />
+        <PrivateRoute path="/shipping" component={ShippingPage} exact />
+        <PrivateRoute path="/payment" component={PaymentPage} exact />
+        <PrivateRoute path="/create-order" component={CreateOrderPage} exact />
+        <PrivateRoute path="/order/:id" component={OrderDetailsPage} exact />
+        <Footer />
+        <Author />
       </Router>
-      <Greetings credentials={credentials} isVisible={successAlert}/>
+      <Greetings credentials={credentials} isVisible={successAlert} />
       {removeAlert && <Alert color="green" msg="Товар успешно удален из Вашей корзины!"/>}
       {addAlert && <Alert color="green" msg="Товар успешно добавлен в Вашу корзину!"/>}
       {removeAlertFavorite && <Alert color="green" msg="Товар успешно удален из Вашего списка избранного!"/>}

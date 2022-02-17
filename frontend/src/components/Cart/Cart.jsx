@@ -25,7 +25,7 @@ const Cart = ({products, dispatch}) => {
           products.length !== 0
             ? loading
               ? <Spinner />
-              : <Products products={products} dispatch={dispatch} />
+              : <Products products={products} dispatch={dispatch} history={history} />
             : <Empty
               history={history}
               Component={EmptyCart}

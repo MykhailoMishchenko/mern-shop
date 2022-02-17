@@ -7,28 +7,42 @@ const Details = ({category, brand, gender, qty, sale, price, percent}) => {
     <div className={styles.detailsItem}>
       <div className={styles.characteristicsItem}>
         <div className={styles.characteristicItem}>
-          <p>Категория</p>
-          <p>
-            {
-              category === "sunglasses"
-                ? "Солнцезащитные очки"
-                : "Аксессуары"
-            }
-          </p>
+          {
+            category && (
+              <>
+                <p>Категория</p>
+                <p>
+                  {
+                    category === "sunglasses"
+                      ? "Солнцезащитные очки"
+                      : "Аксессуары"
+                  }
+                </p>
+              </>
+            )
+          }
         </div>
         <div className={styles.characteristicItem}>
-          <p>Бренд</p>
-          <p>{brand}</p>
+          {brand && (
+            <>
+              <p>Бренд</p>
+              <p>{brand}</p>
+            </>
+          )}
         </div>
         <div className={styles.characteristicItem}>
-          <p>Пол</p>
-          <p>
-            {
-              gender === "male"
-                ? "Мужские"
-                : "Женские"
-            }
-          </p>
+          {gender && (
+            <>
+              <p>Пол</p>
+              <p>
+                {
+                  gender === "male"
+                    ? "Мужские"
+                    : "Женские"
+                }
+              </p>
+            </>
+          )}
         </div>
         <div className={styles.characteristicItem}>
           <p>Количество</p>

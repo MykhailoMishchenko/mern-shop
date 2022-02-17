@@ -17,7 +17,6 @@ const createOrderRequest = (order, token) => axios.post("/api/orders/add-order",
 
 function* worker({payload: {itemsPrice, orderItems, paymentMethod, shippingAddress, shippingPrice, taxPrice, totalPrice}}){
   try {
-    debugger
     const token = yield select(store => store.login.credentials.token);
     const {data} = yield call(createOrderRequest, {
       itemsPrice,

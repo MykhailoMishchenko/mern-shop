@@ -1,9 +1,10 @@
-import {REGISTER_FAIL, REGISTER_REQUEST, REGISTER_SUCCESS} from "./constans";
+import {HIDE_ERROR_REGISTER, REGISTER_FAIL, REGISTER_REQUEST, REGISTER_SUCCESS, SHOW_ERROR_REGISTER} from "./constans";
 
 const initialState = {
   loading: false,
   credentials: null,
-  error: null
+  error: null,
+  regErrAlert: false
 };
 
 export const registerReducer = (state = initialState, action) => {
@@ -26,6 +27,16 @@ export const registerReducer = (state = initialState, action) => {
         credentials: null,
         error: action.payload
       };
+    case SHOW_ERROR_REGISTER:
+      return {
+        ...state,
+        regErrAlert: true
+      }
+    case HIDE_ERROR_REGISTER:
+      return {
+        ...state,
+        regErrAlert: false
+      }
     default:
       return state;
   }

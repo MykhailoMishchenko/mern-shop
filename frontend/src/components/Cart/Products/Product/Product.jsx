@@ -5,7 +5,7 @@ import Title from "./Title/Title";
 import Details from "./Details/Details";
 import Underline from "./Underline/Underline";
 
-const Product = ({product: {product, image, name, percent, sale, brand, category, price, gender, qty, countInStock,}, dispatch}) => {
+const Product = ({product: {product, image, name, percent, sale, brand, category, price, gender, qty, countInStock,}, dispatch, history}) => {
   return (
     <div key={product}>
       <div className={styles.item}>
@@ -32,6 +32,7 @@ const Product = ({product: {product, image, name, percent, sale, brand, category
             price={price}
             countInStock={countInStock}
             category={category}
+            history={history}
           />
         </div>
       </div>

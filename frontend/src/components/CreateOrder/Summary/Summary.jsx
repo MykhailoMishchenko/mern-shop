@@ -2,20 +2,16 @@ import React, {useEffect} from "react";
 import styles from "./Summary.module.scss";
 import {useDispatch, useSelector} from "react-redux";
 import {createOrder} from "../../../redux/Order/CreateOrderServer/action";
+import {useHistory} from "react-router-dom";
 
 const Summary = ({cartItems, payment, shipping}) => {
 
   const {
-    loading, order, error
+    loading, order, error, success
   } = useSelector(state => state?.createOrder);
 
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    if(order){
-      console.log(order);
-    }
-  }, [order])
+  const history = useHistory();
 
 
   //calculate price
@@ -27,15 +23,20 @@ const Summary = ({cartItems, payment, shipping}) => {
   const taxPrice = addDecimals(Number((0.15 * itemsPrice).toFixed(2)));
   const totalPrice = (Number(itemsPrice) + Number(taxPrice)).toFixed(2);
 
-  const createOrderHandler = () => dispatch(createOrder({
-    orderItems: cartItems,
-    shippingAddress: shipping,
-    paymentMethod: payment,
-    itemsPrice,
-    shippingPrice: 0,
-    taxPrice,
-    totalPrice
-  }));
+  const createOrderHandler = () => {
+    dispatch(createOrder({
+      orderItems: cartItems,
+      shippingAddress: shipping,
+      paymentMethod: payment,
+      itemsPrice,
+      shippingPrice: 0,
+      taxPrice,
+      totalPrice
+    }));
+
+  };
+
+  if (success) history.push(`order/${order._id}`)
 
   return (
     <div className={styles.summaryContainer}>
@@ -53,9 +54,17 @@ const Summary = ({cartItems, payment, shipping}) => {
           </div>
         </div>
         <div className={styles.summaryButton}>
-          <button onClick={createOrderHandler}>
-            Разместить Заказ
-          </button>
+          {
+            loading
+              ? <button className={styles.disable}>
+                  <span className={styles.disableText}>
+                     Размещаем Ваш Заказ
+                  </span>
+                </button>
+                : <button onClick={createOrderHandler}>
+                    Разместить Заказ
+                  </button>
+          }
         </div>
       </div>
     </div>

@@ -27,7 +27,6 @@ const Payment = () => {
 
   useEffect(() => {
     if (payment) {
-      console.log(payment);
       setPaymentMethod(payment);
     }
   }, []);

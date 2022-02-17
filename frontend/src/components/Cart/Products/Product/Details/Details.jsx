@@ -4,7 +4,7 @@ import {addToCartRequest, removeFromCartRequest} from "../../../../../redux/Cart
 import {calcSalePrice, getLastPrice} from "../../../../../utils/calcPrice";
 import {ReactComponent as Trash} from "../../../../../assets/image/icon/trash.svg";
 
-const Details = ({category, brand, gender, qty, dispatch, product, countInStock, sale, price, percent}) => {
+const Details = ({category, brand, gender, qty, dispatch, product, countInStock, sale, price, percent, history}) => {
   return (
     <div className={styles.details}>
       <div className={styles.characteristics}>
@@ -47,7 +47,10 @@ const Details = ({category, brand, gender, qty, dispatch, product, countInStock,
                   ₴ {Math.floor(calcSalePrice(price, percent))}</strong>
                 : <strong>₴ {price}</strong>
             }
-            <Trash onClick={() => dispatch(removeFromCartRequest(product))} />
+            <Trash onClick={() => {
+              dispatch(removeFromCartRequest(product))
+              history.push("/cart")
+            }} />
           </div>
         </div>
       </div>
@@ -56,3 +59,4 @@ const Details = ({category, brand, gender, qty, dispatch, product, countInStock,
 };
 
 export default Details;
+

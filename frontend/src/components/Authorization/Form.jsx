@@ -47,7 +47,7 @@ const Form = () => {
   const
     dispatch = useDispatch(),
     {loading, error, errorAlert} = useSelector(state => state?.login),
-    {loading: regLoading, error: regError} = useSelector(state => state?.registration);
+    {loading: regLoading, error: regError, regErrAlert} = useSelector(state => state?.registration);
 
   const
     isDisable = form.email.length <= 4 || form.password.length <= 4,
@@ -86,6 +86,7 @@ const Form = () => {
         <LoginImage className={styles.svg} />
       </div>
       {errorAlert && <Alert color="red" msg={error} />}
+      {regErrAlert && <Alert color="red" msg={regError} />}
     </>
   );
 };

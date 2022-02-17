@@ -10,7 +10,8 @@ const initialState = {
   loading: false,
   order: null,
   error: null,
-  showMyOrder: false
+  showMyOrder: false,
+  success: false
 };
 
 export const createOrderReducer = (state = initialState, action) => {
@@ -24,7 +25,8 @@ export const createOrderReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        order: action.payload
+        order: action.payload,
+        success: true
       };
     case CREATE_ORDER_FAILURE:
       return {

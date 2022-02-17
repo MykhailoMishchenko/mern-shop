@@ -8,7 +8,7 @@ import {useSelector} from "react-redux";
 const CreateOrder = () => {
 
   const {
-      shipping, payment
+      shipping, payment, loading
     } = useSelector(state => state?.order),
     {cartItems} = useSelector(state => state?.cart);
 

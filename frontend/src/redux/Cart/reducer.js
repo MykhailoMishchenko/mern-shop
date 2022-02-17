@@ -2,7 +2,7 @@ import {
   ADD_PRODUCT_TO_CART_FAILURE,
   ADD_PRODUCT_TO_CART_REQUEST,
   ADD_PRODUCT_TO_CART_SUCCESS, HIDE_SUCCESS_ALERT_ADD,
-  HIDE_SUCCESS_ALERT_REMOVE,
+  HIDE_SUCCESS_ALERT_REMOVE, REMOVE_ALL_PRODUCT_FROM_CART,
   REMOVE_PRODUCT_FROM_CART, SHOW_SUCCESS_ALERT_ADD,
   SHOW_SUCCESS_ALERT_REMOVE
 } from "./constans";
@@ -50,7 +50,13 @@ export const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        cartItems: state.cartItems.filter(product => product._id !== action.payload)
+        cartItems: state.cartItems.filter(product => product.product !== action.payload)
+      };
+    case REMOVE_ALL_PRODUCT_FROM_CART:
+      return {
+        ...state,
+        loading: false,
+        cartItems: []
       };
     case SHOW_SUCCESS_ALERT_ADD:
       return {
