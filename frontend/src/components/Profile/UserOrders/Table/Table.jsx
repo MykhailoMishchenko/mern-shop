@@ -57,9 +57,17 @@ const Table = ({orders}) => {
                       {format(new Date(order.createdAt), "MM/dd/yyyy")}
                     </td>
                     <td>{order.totalPrice}</td>
-                    <td>{order.isPaid ? "Оплачено" : "Не оплачено"}</td>
-                    <td>{order.isDelivered ? "Доставлено" : "Не доставлено"}</td>
-                    <td><button onClick={() => history.push(`/order/${order._id}`)}>Детали</button></td>
+                    <td>{order.isPaid ? <i className="fas fa-check"></i> : <i className="fas fa-times"></i>}</td>
+                    <td>
+                      {
+                        order.isDelivered
+                          ? <i className="fas fa-check"></i>
+                          : <i className="fas fa-times"></i>
+                      }
+                    </td>
+                    <td>
+                      <button onClick={() => history.push(`/order/${order._id}`)}>Детали</button>
+                    </td>
                   </tr>
                 ))
               }

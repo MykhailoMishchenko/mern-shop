@@ -9,7 +9,6 @@ const Product = ({product: {_id, image, name, sale, percent, category, brand, ge
     <div key={_id}>
       <div className={styles.item}>
         <Image
-          _id={_id}
           name={name}
           image={image}
           percent={percent}
@@ -17,7 +16,6 @@ const Product = ({product: {_id, image, name, sale, percent, category, brand, ge
         />
         <div className={styles.descriptionItem}>
           <Title
-            _id={_id}
             name={name}
           />
           <Details

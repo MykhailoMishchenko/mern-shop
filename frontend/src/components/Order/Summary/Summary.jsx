@@ -1,10 +1,10 @@
 import React from "react";
-import styles from "./Summary.module.scss";
+import styles from "../../CreateOrder/Summary/Summary.module.scss";
 
 
-const Summary = ({taxPrice, totalPrice, payment, cartItems, itemsPrice}) => {
+const Summary = ({cartItems, totalPrice, taxPrice, paymentMethod}) => {
 
-  const count = cartItems.length
+  const count = cartItems.length;
 
   return (
     <div className={styles.summaryContainer}>
@@ -15,16 +15,24 @@ const Summary = ({taxPrice, totalPrice, payment, cartItems, itemsPrice}) => {
             <p>на сумму ₴ {totalPrice} </p>
           </div>
           <div className={styles.descriptions}>
-            {itemsPrice && <div><p>Товара на суму</p> <p>₴ {itemsPrice}</p></div>}
+            <div><p>Товара на суму</p> <p>₴ {totalPrice}</p></div>
             <div><p>ПДВ</p> <p>₴ {taxPrice}</p></div>
             <div><p>Доставка</p> <p>Уточнять</p></div>
             <div><p>Всего</p> <p>₴ {totalPrice}</p></div>
           </div>
         </div>
         <div className={styles.summaryButton}>
-          {payment === "ApplePay" && <button>Apple Pay</button>}
-          {payment === "GooglePay" && <button>Google Pay</button>}
-          {payment === "Nova-Poshta" && <button>Оплата Наложенным Платежом</button>}
+          {
+            paymentMethod === "ApplePay" && <button className={styles.pay}>
+              <i className="fab fa-apple"></i> Pay
+            </button>
+          }
+          {
+            paymentMethod === "GooglePay" && <button className={styles.pay}>
+              <i className="fab fa-google"></i> Pay
+            </button>
+          }
+          {paymentMethod === "Nova-Poshta" && <button className={styles.novaPay}>Оплата наложенным платежом</button>}
         </div>
       </div>
     </div>

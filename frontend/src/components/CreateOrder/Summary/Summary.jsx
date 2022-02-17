@@ -4,15 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {createOrder} from "../../../redux/Order/CreateOrderServer/action";
 import {useHistory} from "react-router-dom";
 
-const Summary = ({cartItems, payment, shipping}) => {
-
-  const {
-    loading, order, error, success
-  } = useSelector(state => state?.createOrder);
-
-  const dispatch = useDispatch();
-  const history = useHistory();
-
+const Summary = ({cartItems, loading, payment, shipping, dispatch}) => {
 
   //calculate price
   const count = cartItems.reduce((acc, item) => acc + item.qty, 0);
@@ -33,10 +25,7 @@ const Summary = ({cartItems, payment, shipping}) => {
       taxPrice,
       totalPrice
     }));
-
   };
-
-  if (success) history.push(`order/${order._id}`)
 
   return (
     <div className={styles.summaryContainer}>

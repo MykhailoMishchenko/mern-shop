@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Table.module.scss";
 
-const Table = ({shipping: {city, country, address, postalOffice}, payment, cartItems}) => {
+const Table = ({shipping: {city, country, address, postalOffice}, payment, cartItems, isPaid, isDelivered}) => {
   return (
     <div className={styles.detailsContainer}>
       <table className="styled-table">
@@ -26,11 +26,11 @@ const Table = ({shipping: {city, country, address, postalOffice}, payment, cartI
         </tr>
         <tr>
           <td>Оплата</td>
-          <td>{false ? "Оплачено" : "Не Оплачено"}</td>
+          <td>{isPaid ? <i className="fas fa-check"></i> : <i className="fas fa-times"></i>}</td>
         </tr>
         <tr>
           <td>Доставка</td>
-          <td>{false ? "Доставлено" : "Не Доставлено"}</td>
+          <td>{isDelivered ? <i className="fas fa-check"></i> : <i className="fas fa-times"></i>}</td>
         </tr>
         </tbody>
       </table>

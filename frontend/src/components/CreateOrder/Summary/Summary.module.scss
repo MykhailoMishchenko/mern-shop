@@ -53,6 +53,26 @@
       text-transform: uppercase;
       cursor: pointer;
     }
+
+    & .pay {
+      text-transform: capitalize;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 500;
+      font-size: 25px;
+      & i {
+        color: white;
+        font-size: 22px;
+        margin-right: 5px;
+      }
+    }
+    & .novaPay {
+      font-weight: normal;
+      font-size: 14px;
+      cursor: not-allowed;
+      background-color: #495057;
+    }
   }
 }
 
@@ -124,5 +144,16 @@
     z-index: 1;
     cursor: wait;
     color: #F8F8F8;
+  }
+}
+
+
+
+@keyframes move {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-1.75rem);
   }
 }

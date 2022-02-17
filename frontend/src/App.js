@@ -1,11 +1,13 @@
 import React from "react";
 import {BrowserRouter as Router, Route} from "react-router-dom";
+import PrivateRoute from "./HOC/PrivateRoute";
+import PublicRoute from "./HOC/PublicRoute";
+import RedirectToOrderRoute from "./HOC/RedirectToOrderRoute";
 import {useSelector} from "react-redux";
 import HomePage from "./pages/HomePage";
 import ScrollToTop from "./common/ScrollToTop/ScrollToTop";
 import TopNav from "./components/Nav/TopNav/TopNav";
 import Nav from "./components/Nav/Nav/Nav";
-import PublicRoute from "./HOC/PublicRoute";
 import LoginPage from "./pages/LoginPage";
 import WomenPage from "./pages/WomenPage";
 import MenPage from "./pages/MenPage";
@@ -13,7 +15,6 @@ import ProductDetailsPage from "./pages/ProductDetailsPage";
 import CartPage from "./pages/CartPage";
 import FavoriteProductsPage from "./pages/FavoriteProductsPage";
 import SalesPage from "./pages/SalesPage";
-import PrivateRoute from "./HOC/PrivateRoute";
 import ProfilePage from "./pages/ProfilePage";
 import ShippingPage from "./pages/ShippingPage";
 import PaymentPage from "./pages/PaymentPage";
@@ -55,7 +56,7 @@ const App = () => {
         <PrivateRoute path="/profile" component={ProfilePage} exact />
         <PrivateRoute path="/shipping" component={ShippingPage} exact />
         <PrivateRoute path="/payment" component={PaymentPage} exact />
-        <PrivateRoute path="/create-order" component={CreateOrderPage} exact />
+        <RedirectToOrderRoute path="/create-order" component={CreateOrderPage} exact restricted/>
         <PrivateRoute path="/order/:id" component={OrderDetailsPage} exact />
         <Footer />
         <Author />
