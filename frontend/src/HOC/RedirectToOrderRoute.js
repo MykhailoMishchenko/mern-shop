@@ -6,7 +6,6 @@ const RedirectToOrderRoute = ({
   component: Component,
   order,
   redirectTo,
-  props1,
   ...routeProps
 }) => {
   return (<Route

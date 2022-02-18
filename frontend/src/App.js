@@ -24,6 +24,8 @@ import Greetings from "./common/Alerts/Greetings/Greetings";
 import Footer from "./components/Footer/Footer";
 import Author from "./components/Author/Author";
 import OrderDetailsPage from "./pages/OrderDetailsPage";
+import AdminRoute from "./HOC/AdminRoute";
+import AdminCustomers from "./pages/AdminCustomers";
 
 
 const App = () => {
@@ -58,6 +60,8 @@ const App = () => {
         <PrivateRoute path="/payment" component={PaymentPage} exact />
         <RedirectToOrderRoute path="/create-order" component={CreateOrderPage} exact restricted/>
         <PrivateRoute path="/order/:id" component={OrderDetailsPage} exact />
+
+        <AdminRoute path="/admin/customers" component={AdminCustomers} exact/>
         <Footer />
         <Author />
       </Router>

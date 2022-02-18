@@ -24,6 +24,8 @@ const paymentInformation = localStorage.getItem('paymentInformation')
   ? JSON.parse(localStorage.getItem('paymentInformation'))
   : null
 
+
+
 const initialState = {
   cart: {
     cartItems: cartItemsFromStorage
