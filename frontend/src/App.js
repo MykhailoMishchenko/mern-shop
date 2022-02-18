@@ -1,31 +1,28 @@
-import React from "react";
+import React, {Suspense} from "react";
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import PrivateRoute from "./HOC/PrivateRoute";
 import PublicRoute from "./HOC/PublicRoute";
 import RedirectToOrderRoute from "./HOC/RedirectToOrderRoute";
+import AdminRoute from "./HOC/AdminRoute";
 import {useSelector} from "react-redux";
-import HomePage from "./pages/HomePage";
 import ScrollToTop from "./common/ScrollToTop/ScrollToTop";
 import TopNav from "./components/Nav/TopNav/TopNav";
 import Nav from "./components/Nav/Nav/Nav";
-import LoginPage from "./pages/LoginPage";
-import WomenPage from "./pages/WomenPage";
-import MenPage from "./pages/MenPage";
-import ProductDetailsPage from "./pages/ProductDetailsPage";
-import CartPage from "./pages/CartPage";
-import FavoriteProductsPage from "./pages/FavoriteProductsPage";
-import SalesPage from "./pages/SalesPage";
-import ProfilePage from "./pages/ProfilePage";
-import ShippingPage from "./pages/ShippingPage";
-import PaymentPage from "./pages/PaymentPage";
-import CreateOrderPage from "./pages/CreateOrderPage";
 import Alert from "./common/Alerts/Alert/Alert";
 import Greetings from "./common/Alerts/Greetings/Greetings";
 import Footer from "./components/Footer/Footer";
 import Author from "./components/Author/Author";
-import OrderDetailsPage from "./pages/OrderDetailsPage";
-import AdminRoute from "./HOC/AdminRoute";
-import AdminCustomers from "./pages/AdminCustomers";
+import {
+  AdminCustomers,
+  CartPage, CreateOrderPage,
+  FavoriteProductsPage,
+  HomePage,
+  LoginPage,
+  MenPage, OrderDetailsPage, PaymentPage,
+  ProductDetailsPage, ProfilePage,
+  SalesPage, ShippingPage,
+  WomenPage
+} from "./pages";
 
 
 const App = () => {
@@ -42,7 +39,7 @@ const App = () => {
   } = useSelector(state => state?.login)
 
   return (
-    <>
+    <Suspense fallback={"Loading..."}>
       <Router>
         <ScrollToTop />
         <TopNav />
@@ -70,7 +67,7 @@ const App = () => {
       {addAlert && <Alert color="green" msg="Товар успешно добавлен в Вашу корзину!"/>}
       {removeAlertFavorite && <Alert color="green" msg="Товар успешно удален из Вашего списка избранного!"/>}
       {addAlertFavorite && <Alert color="green" msg="Товар успешно добавлен в Ваш список избранного!"/>}
-    </>
+    </Suspense>
   );
 };
 
