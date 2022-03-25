@@ -1,6 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 @import "constans";
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  color: $dark;
+}
+
+html {
+  height: 100%;
+}
 
 body {
   margin: 0;
@@ -9,14 +20,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  height: 100%;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-size: 14px;
-  color: $dark;
+#root {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+.footer {
+  grid-row-start: 2;
+  grid-row-end: 3;
 }
 
 .container {
@@ -164,4 +179,28 @@ body {
 tr td button {
   padding: 10px 15px;
   text-transform: capitalize;
+}
+
+
+.preloader {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    & img {
+      object-fit: cover;
+      width: 300px;
+      height: 300px;
+    }
+}
+.w100 {
+  width: 100%;
+}
+
+
+.Flex {
+  width: 100%;
+  height: 100vh;
+  background-color: red;
 }

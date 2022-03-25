@@ -1,5 +1,6 @@
 import {combineReducers} from "redux";
 import {productsApi} from "./Products/productsApi";
+import {getOrderById} from "./Order/GetOrderById/getOrderById";
 import {cartReducer} from "./Cart/reducer";
 import {changeMarkup} from "./Filter/Grid/reducer";
 import {loginReducer} from "./Users/Login/reducer";
@@ -10,7 +11,7 @@ import {updateUserDetailsReducer} from "./Users/UpdateDetails/reducers";
 import {addShippingInformation} from "./Order/CreateOrderLocal/reducer";
 import {createOrderReducer} from "./Order/CreateOrderServer/reducer";
 import {getMyOrdersReducer} from "./Order/MyOrders/reducer";
-import {getOrderById} from "./Order/GetOrderById/getOrderById";
+import {adminReducer} from "./Admin/reducer";
 
 
 export const rootReducer = combineReducers({
@@ -26,4 +27,5 @@ export const rootReducer = combineReducers({
   createOrder: createOrderReducer,
   favorite: favoriteReducer,
   markup: changeMarkup,
+  admin: adminReducer
 })

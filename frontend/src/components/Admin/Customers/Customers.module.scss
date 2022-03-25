@@ -1,0 +1,30 @@
+.container {
+  & h4 {
+    font-size: 22px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 48px 0 48px;
+    letter-spacing: 0.06em;
+  }
+}
+
+.btn {
+  background-color: #121212;
+  color: white;
+  outline: none;
+  border: none;
+}
+
+.delete {
+  outline: none;
+  border: 2px solid black;
+  color: #121212;
+  margin-left: 15px;
+  background-color: transparent;
+  padding: 8px 13px;
+}
+
+.lastTd {
+  display: flex;
+  justify-content: flex-end;
+}

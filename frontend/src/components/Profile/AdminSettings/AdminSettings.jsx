@@ -12,24 +12,28 @@ const AdminSettings = () => {
       <h4 className={styles.title}>Админ Панель</h4>
       <div className={styles.wrapper}>
         <div>
-          <img src={customers} alt="" />
+          <img src={customers} alt="Customers" />
           <NavLink to="/admin/customers">Клиенты</NavLink>
         </div>
         <div>
-          <img src={orders} alt="" />
+          <img src={orders} alt="Orders" />
           <NavLink to="/admin/orders">Заказы</NavLink>
         </div>
         <div>
-          <img src={products} alt="" />
+          <img src={products} alt="Products" />
           <NavLink to="/admin/products">Продукция</NavLink>
         </div>
         <div>
-          <img src={analytics} alt="" />
+          <img src={analytics} alt="Analytics" />
           <NavLink to="/admin/analytics">Графики</NavLink>
         </div>
+        <NavLink className={styles.mainLink} to="/admin">Панель Администратора</NavLink>
       </div>
     </div>
   );
 };
 
 export default AdminSettings;
+
+
+

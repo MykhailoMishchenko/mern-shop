@@ -11,6 +11,7 @@ import {updateUserDetailsWatcher} from "./Users/UpdateDetails/saga";
 import {createOrderWatcher} from "./Order/CreateOrderServer/saga";
 import {getMyOrdersWatcher} from "./Order/MyOrders/saga";
 import {removeAllFromCartWatcher} from "./Cart/removeAllProductFromCart/saga";
+import {getCustomerWatcher} from "./Admin/Customers/saga";
 
 function* rootSaga(){
   yield all(
@@ -19,7 +20,7 @@ function* rootSaga(){
       loginWatcher(), logoutWatcher(), registerWatcher(),
       addProductToFavoriteWatcher(), removeProductFromFavoriteWatcher(),
       getUserDetailsWatcher(), updateUserDetailsWatcher(), createOrderWatcher(),
-      getMyOrdersWatcher(), removeAllFromCartWatcher()
+      getMyOrdersWatcher(), removeAllFromCartWatcher(), getCustomerWatcher()
     ]
   );
 }
