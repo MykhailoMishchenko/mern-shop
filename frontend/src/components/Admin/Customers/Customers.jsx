@@ -19,7 +19,7 @@ const Customers = () => {
     <div className={styles.container}>
       <h4>Клиенты</h4>
       <div className={styles.wrapper}>
-        <table className="styled-table w100">
+        <table className={styles.styledTable}>
           <thead>
           <tr>
             <th>Имя Клиента</th>

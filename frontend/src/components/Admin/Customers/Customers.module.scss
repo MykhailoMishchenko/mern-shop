@@ -28,3 +28,46 @@
   display: flex;
   justify-content: flex-end;
 }
+
+.styledTable {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  width: 100%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styledTable thead tr {
+  background-color: #0BB17F;
+  color: #ffffff;
+  text-align: left;
+}
+
+.styledTable th,
+.styledTable td {
+  padding: 12px 15px;
+}
+
+.styledTable tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styledTable tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styledTable tbody tr:last-of-type {
+  border-bottom: 2px solid #0BB17F;
+}
+
+.styledTable tbody tr.active-row {
+  font-weight: bold;
+  color: #0BB17F;
+}
+
+tr td button {
+  padding: 10px 15px;
+  text-transform: capitalize;
+  margin-bottom: 0;
+}
